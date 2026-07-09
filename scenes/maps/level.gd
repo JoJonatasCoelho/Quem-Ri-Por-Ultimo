@@ -6,7 +6,7 @@ func _ready() -> void:
 	initialize_players()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func initialize_players() -> void:

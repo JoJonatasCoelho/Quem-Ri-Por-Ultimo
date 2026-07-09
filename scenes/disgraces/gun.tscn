@@ -37,22 +37,22 @@ animations = [{
 "duration": 0.2,
 "texture": SubResource("AtlasTexture_76gfg")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_dk8s2")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_xgbgt")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_36nc0")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_6hc1k")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_5ne3p")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_dlrua")
 }],
 "loop": 1,
@@ -71,7 +71,7 @@ disgrace_name = "Gun"
 sprite_frames = SubResource("SpriteFrames_kkyey")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.06262147
+frame_progress = 0.7896513
 
 [node name="CollectArea" type="Area2D" parent="." unique_id=1572474519]
 

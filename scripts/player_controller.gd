@@ -30,7 +30,8 @@ extends CharacterBody2D
 	DOWN	 = "ui_down",
 	JUMP = "ui_accept",
 	CROUCH = "crouch",
-	PAUSE = "ui_cancel"
+	PAUSE = "ui_cancel",
+	USE = "ui_accept"
 	}
 #endregion
 
@@ -57,6 +58,9 @@ var current_speed : float = 0.0
 var state : String = "normal"
 var low_ceiling : bool = false
 var was_on_floor : bool = true
+var has_disgrace: bool = false
+var can_use_disgrace: bool = false
+var equiped_disgrace: Disgrace
 #endregion
 
 #region Main Control Flow
@@ -69,6 +73,7 @@ func _ready():
 func _process(_delta: float) -> void:
 	if pausing_enabled:
 		handle_pausing()
+	handle_input()
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -97,12 +102,13 @@ func check_controls() -> void:
 	if !InputMap.has_action(controls.PAUSE):
 		push_error("No control mapped for pause. Please add an input map control. Disabling pausing.")
 		pausing_enabled = false
-	#if !InputMap.has_action(controls.CROUCH):
-		#push_error("No control mapped for crouch. Please add an input map control. Disabling crouching.")
-		#crouch_enabled = false
+	if !InputMap.has_action(controls.USE):
+		push_error("No control mapped for use disgrace. Please add an input map control.")
 	#if !InputMap.has_action(controls.SPRINT):
 		#push_error("No control mapped for sprint. Please add an input map control. Disabling sprinting.")
 		#sprint_enabled = false
+
+#endregion
 
 func enter_normal_state() -> void:
 	#var prev_state = state # anti preempção
@@ -147,3 +153,18 @@ func play_movement_animation(animation: String) -> void:
 
 func handle_pausing() -> void:
 	pass
+	
+func handle_input() -> void:
+	if Input.is_action_just_pressed(controls.get("USE")):
+		if has_disgrace:
+			equiped_disgrace.use()
+
+func equip(disgrace: Disgrace) -> void:
+	disgrace.reparent.call_deferred(self, false)
+	disgrace.position = $DisgraceAvailablePosition.position	
+	equiped_disgrace = disgrace
+	has_disgrace = true
+	
+func unequip() -> void:
+	has_disgrace = false
+	equiped_disgrace.reparent.call_deferred(self.get_parent(), false)

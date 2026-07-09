@@ -45,7 +45,7 @@ shape = SubResource("WorldBoundaryShape2D_utigf")
 position = Vector2(626, 145)
 shape = SubResource("WorldBoundaryShape2D_1g4kx")
 
-[node name="Player" parent="." unique_id=1184130371 instance=ExtResource("4_3xumh")]
+[node name="Player" parent="." unique_id=1184130371 groups=["players"] instance=ExtResource("4_3xumh")]
 position = Vector2(82, 35)
 controls = {
 &"CROUCH": "crouch",
@@ -54,10 +54,11 @@ controls = {
 &"LEFT": "p1_left",
 &"PAUSE": "ui_cancel",
 &"RIGHT": "p1_right",
-&"UP": "p1_up"
+&"UP": "p1_up",
+"USE": "ui_accept"
 }
 
-[node name="Player2" parent="." unique_id=432099408 instance=ExtResource("4_3xumh")]
+[node name="Player2" parent="." unique_id=432099408 groups=["players"] instance=ExtResource("4_3xumh")]
 position = Vector2(138, 37)
 controls = {
 &"CROUCH": "crouch",
@@ -66,7 +67,8 @@ controls = {
 &"LEFT": "p2_left",
 &"PAUSE": "ui_cancel",
 &"RIGHT": "p2_right",
-&"UP": "p2_up"
+&"UP": "p2_up",
+"USE": "ui_accept"
 }
 
 [node name="Main" parent="." unique_id=1801485757 instance=ExtResource("4_mvpml")]

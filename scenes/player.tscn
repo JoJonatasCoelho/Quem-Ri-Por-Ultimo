@@ -267,15 +267,18 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" unique_id=1184130371 node_paths=PackedStringArray("COLLISION", "IDLE_ANIMATION", "WALK_ANIMATION", "JUMP_ANIMATION")]
 script = ExtResource("1_g2els")
-COLLISION = NodePath("CollisionShape2D")
+COLLISION = NodePath("PlayerCollision")
 IDLE_ANIMATION = NodePath("AnimatedSprite2D")
 WALK_ANIMATION = NodePath("AnimatedSprite2D")
 JUMP_ANIMATION = NodePath("AnimatedSprite2D")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=189132811]
+[node name="PlayerCollision" type="CollisionShape2D" parent="." unique_id=189132811]
 shape = SubResource("RectangleShape2D_kkyey")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1522471878]
 sprite_frames = SubResource("SpriteFrames_kkyey")
 animation = &"jump"
-frame_progress = 0.7064033
+frame_progress = 0.04079726
+
+[node name="DisgraceAvailablePosition" type="Marker2D" parent="." unique_id=1869545036]
+position = Vector2(0, -64)
