@@ -9,6 +9,8 @@ extends CharacterBody2D
 #@export var acceleration : float = 10.0
 @export var jump_velocity : float = -450.0
 @export var immobile : bool = false
+
+@export var player_num: int = -1
 #endregion
 
 #region Nodes Export Group
@@ -63,6 +65,7 @@ var was_on_floor : bool = true
 
 func _ready():
 	#initialize_animations()
+	_apply_character()
 	check_controls()
 	enter_normal_state()
 	
@@ -70,6 +73,15 @@ func _process(_delta: float) -> void:
 	if pausing_enabled:
 		handle_pausing()
 
+func _apply_character() -> void:
+	if self.player_num == 1:
+		$AnimatedSprite2D.material.set_shader_parameter("new_palette", GlobalVals.p1_palette)
+		self.sprite_frames = GlobalVals.characters[GlobalVals.p1_character].sprite
+		$AnimatedSprite2D.play("idle")
+	elif self.player_num == 2:
+		$AnimatedSprite2D.material.set_shader_parameter("new_palette", GlobalVals.p2_palette)
+		self.sprite_frames = GlobalVals.characters[GlobalVals.p2_character].sprite
+		$AnimatedSprite2D.play("idle")
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
