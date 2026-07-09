@@ -3,6 +3,7 @@ extends Node2D
 class_name Disgrace
 
 @export var disgrace_name: String
+@export var animation_name: String
 
 func _ready() -> void:
 	pass

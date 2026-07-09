@@ -18,6 +18,7 @@ extends CharacterBody2D
 @export var IDLE_ANIMATION: AnimatedSprite2D
 @export var WALK_ANIMATION: AnimatedSprite2D
 @export var JUMP_ANIMATION: AnimatedSprite2D
+@export var DISGRACE_ANIMATION: AnimatedSprite2D
 
 #endregion
 
@@ -78,8 +79,8 @@ func _process(_delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	handle_jumping()
 	if !immobile:
+		handle_jumping()
 		handle_movement()
 	move_and_slide()
 
@@ -157,11 +158,23 @@ func handle_pausing() -> void:
 func handle_input() -> void:
 	if Input.is_action_just_pressed(controls.get("USE")):
 		if has_disgrace:
+			handle_disgrace_animation()
 			equiped_disgrace.use()
+			
+func handle_disgrace_animation() -> void:
+	# Todo: melhorar a forma de lidar com ele estar imóvel?
+	var animation_name: String = equiped_disgrace.animation_name
+	print("nome da animação: ", animation_name)
+	if DISGRACE_ANIMATION.sprite_frames.has_animation(animation_name):
+		immobile = true
+		DISGRACE_ANIMATION.play(animation_name, 2)
+		await DISGRACE_ANIMATION.animation_finished
+		immobile = false
+
 
 func equip(disgrace: Disgrace) -> void:
 	disgrace.reparent.call_deferred(self, false)
-	disgrace.position = $DisgraceAvailablePosition.position	
+	disgrace.set_deferred("position", $DisgraceAvailablePosition.position)
 	equiped_disgrace = disgrace
 	has_disgrace = true
 	

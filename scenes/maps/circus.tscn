@@ -55,7 +55,7 @@ controls = {
 &"PAUSE": "ui_cancel",
 &"RIGHT": "p1_right",
 &"UP": "p1_up",
-"USE": "ui_accept"
+"USE": "ui_focus_next"
 }
 
 [node name="Player2" parent="." unique_id=432099408 groups=["players"] instance=ExtResource("4_3xumh")]
@@ -79,3 +79,4 @@ offset_bottom = 20.0
 
 [node name="Gun" parent="." unique_id=1815693898 instance=ExtResource("5_mvpml")]
 position = Vector2(314, 242)
+animation_name = "shot"

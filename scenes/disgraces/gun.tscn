@@ -65,6 +65,7 @@ size = Vector2(14, 12)
 
 [node name="Gun" type="Node2D" unique_id=1815693898]
 script = ExtResource("1_76gfg")
+range = 300.0
 disgrace_name = "Gun"
 
 [node name="GunSprite" type="AnimatedSprite2D" parent="." unique_id=1457599044]
