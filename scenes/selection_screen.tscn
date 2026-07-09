@@ -1,103 +1,20 @@
 [gd_scene format=3 uid="uid://1e6p6atjfvs8"]
 
+[ext_resource type="Texture2D" uid="uid://dkjyku6w2qnti" path="res://assets/icons/characters/magician_avatar.png" id="1_dyftk"]
 [ext_resource type="Script" uid="uid://dpg4lsj5xxdr0" path="res://scripts/selection_screen.gd" id="1_ednkh"]
-[ext_resource type="Texture2D" uid="uid://c0kwswouin1ak" path="res://assets/animations/magico_rabisco(v3)_spriteIdle(v2).png" id="3_2nlgg"]
+[ext_resource type="Texture2D" uid="uid://bsfvtijl15gfm" path="res://assets/icons/characters/palhaco_avatar.png" id="3_7my7a"]
 [ext_resource type="Shader" uid="uid://b6t1vorcrip0w" path="res://shaders/recolor_text.tres" id="3_th2u4"]
-[ext_resource type="Texture2D" uid="uid://dqfbk8g6g7kvq" path="res://assets/palettes/magic/paleta_magico.png" id="4_4836g"]
 [ext_resource type="Texture2D" uid="uid://bk71lfwwkphbr" path="res://assets/placeholders/arrow.png" id="4_syhfi"]
 [ext_resource type="Texture2D" uid="uid://c6ylj7tq3wvda" path="res://assets/placeholders/arrow_selected.png" id="5_ddptc"]
-[ext_resource type="Texture2D" uid="uid://d2nw7isir10ix" path="res://assets/placeholders/Palhaço_rabisco(v3).png" id="7_xwqtl"]
-[ext_resource type="Texture2D" uid="uid://c7qx7r7bxx1a7" path="res://assets/palettes/clown/clown_default.png" id="7_y768y"]
+[ext_resource type="Texture2D" uid="uid://b7fphkxuxsucc" path="res://assets/placeholders/p1_cursor.png" id="11_6atd4"]
+[ext_resource type="Texture2D" uid="uid://c6a087f2gh0l8" path="res://assets/placeholders/p2_cursor.png" id="12_4ydr7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_go57s"]
 shader = ExtResource("3_th2u4")
-shader_parameter/original_palette = ExtResource("4_4836g")
 shader_parameter/color_count = 7
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_syhfi"]
-atlas = ExtResource("3_2nlgg")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ddptc"]
-atlas = ExtResource("3_2nlgg")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_th2u4"]
-atlas = ExtResource("3_2nlgg")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4836g"]
-atlas = ExtResource("3_2nlgg")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y768y"]
-atlas = ExtResource("3_2nlgg")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xwqtl"]
-atlas = ExtResource("3_2nlgg")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7my7a"]
-atlas = ExtResource("3_2nlgg")
-region = Rect2(384, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l5ai3"]
-atlas = ExtResource("3_2nlgg")
-region = Rect2(448, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6atd4"]
-atlas = ExtResource("3_2nlgg")
-region = Rect2(512, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ydr7"]
-atlas = ExtResource("3_2nlgg")
-region = Rect2(576, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mvnlr"]
-atlas = ExtResource("3_2nlgg")
-region = Rect2(640, 0, 64, 64)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_kkyey"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_syhfi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ddptc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_th2u4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4836g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y768y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xwqtl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7my7a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l5ai3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6atd4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4ydr7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mvnlr")
-}],
-"loop": 1,
-"name": &"idle",
-"speed": 5.0
-}]
+animations = []
 
 [sub_resource type="InputEventKey" id="InputEventKey_4836g"]
 device = -1
@@ -119,19 +36,10 @@ events = [SubResource("InputEventKey_xwqtl")]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1g4kx"]
 shader = ExtResource("3_th2u4")
-shader_parameter/original_palette = ExtResource("7_y768y")
 shader_parameter/color_count = 7
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_utigf"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_xwqtl")
-}],
-"loop": 1,
-"name": &"idle",
-"speed": 5.0
-}]
+animations = []
 
 [sub_resource type="InputEventKey" id="InputEventKey_l5ai3"]
 device = -1
@@ -163,19 +71,51 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="CharactersGrid" type="GridContainer" parent="CanvasLayer/CharacterSelection" unique_id=1895811346]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.68600005
+anchor_right = 0.5
+anchor_bottom = 0.68600005
+offset_left = -30.5
+offset_top = -15.960022
+offset_right = 30.5
+offset_bottom = 16.039978
+grow_horizontal = 2
+grow_vertical = 0
+columns = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Magician" type="TextureRect" parent="CanvasLayer/CharacterSelection/CharactersGrid" unique_id=202764048]
+layout_mode = 2
+texture = ExtResource("1_dyftk")
+stretch_mode = 3
+
+[node name="Clown" type="TextureRect" parent="CanvasLayer/CharacterSelection/CharactersGrid" unique_id=1182763350]
+layout_mode = 2
+texture = ExtResource("3_7my7a")
+stretch_mode = 3
+
 [node name="P1CharacterPanel" type="Panel" parent="CanvasLayer/CharacterSelection" unique_id=1908659759]
-layout_mode = 0
-offset_left = 96.0
-offset_top = 93.0
-offset_right = 196.0
-offset_bottom = 193.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -80.0
+offset_right = -90.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CharacterSprite" type="AnimatedSprite2D" parent="CanvasLayer/CharacterSelection/P1CharacterPanel" unique_id=1478470537]
 material = SubResource("ShaderMaterial_go57s")
 position = Vector2(51, 52)
 sprite_frames = SubResource("SpriteFrames_kkyey")
-animation = &"idle"
-autoplay = "idle"
+animation = &""
 
 [node name="LeftP1" type="TextureButton" parent="CanvasLayer/CharacterSelection/P1CharacterPanel" unique_id=693569939]
 layout_mode = 0
@@ -183,6 +123,7 @@ offset_left = -51.0
 offset_top = 35.0
 offset_right = -2.0
 offset_bottom = 75.0
+disabled = true
 action_mode = 0
 button_mask = 0
 shortcut = SubResource("Shortcut_y768y")
@@ -200,6 +141,7 @@ offset_top = 35.0
 offset_right = 200.0
 offset_bottom = 75.0
 scale = Vector2(-1, 1)
+disabled = true
 action_mode = 0
 button_mask = 0
 shortcut = SubResource("Shortcut_7my7a")
@@ -211,18 +153,25 @@ texture_focused = ExtResource("4_syhfi")
 metadata/_edit_use_anchors_ = true
 
 [node name="P2CharacterPanel" type="Panel" parent="CanvasLayer/CharacterSelection" unique_id=774913942]
-layout_mode = 0
-offset_left = 410.0
-offset_top = 97.0
-offset_right = 510.0
-offset_bottom = 197.0
-metadata/_edit_use_anchors_ = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 90.0
+offset_top = -80.0
+offset_right = 190.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CharacterSprite" type="AnimatedSprite2D" parent="CanvasLayer/CharacterSelection/P2CharacterPanel" unique_id=508772443]
 material = SubResource("ShaderMaterial_1g4kx")
 position = Vector2(50, 50)
 sprite_frames = SubResource("SpriteFrames_utigf")
-animation = &"idle"
+animation = &""
+flip_h = true
 
 [node name="LeftP2" type="TextureButton" parent="CanvasLayer/CharacterSelection/P2CharacterPanel" unique_id=1483541738]
 layout_mode = 0
@@ -230,6 +179,7 @@ offset_left = -51.0
 offset_top = 35.0
 offset_right = -2.0
 offset_bottom = 75.0
+disabled = true
 action_mode = 0
 button_mask = 0
 shortcut = SubResource("Shortcut_6atd4")
@@ -248,6 +198,7 @@ offset_top = 35.0
 offset_right = 200.0
 offset_bottom = 75.0
 scale = Vector2(-1, 1)
+disabled = true
 action_mode = 0
 button_mask = 0
 shortcut = SubResource("Shortcut_mvnlr")
@@ -257,6 +208,20 @@ texture_hover = ExtResource("4_syhfi")
 texture_disabled = ExtResource("4_syhfi")
 texture_focused = ExtResource("4_syhfi")
 metadata/_edit_use_anchors_ = true
+
+[node name="P1Cursor" type="TextureRect" parent="CanvasLayer/CharacterSelection" unique_id=144512367]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("11_6atd4")
+stretch_mode = 3
+
+[node name="P2Cursor" type="TextureRect" parent="CanvasLayer/CharacterSelection" unique_id=1281822893]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("12_4ydr7")
+stretch_mode = 3
 
 [connection signal="pressed" from="CanvasLayer/CharacterSelection/P1CharacterPanel/LeftP1" to="." method="_on_left_p_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/CharacterSelection/P1CharacterPanel/RightP1" to="." method="_on_right_p_1_pressed"]
