@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cd352m5k6qu80"]
+
+[ext_resource type="Texture2D" uid="uid://5vb2id3x2rmx" path="res://assets/placeholders/circus.png" id="1_3xumh"]
+[ext_resource type="PackedScene" uid="uid://edsy444m7rf4" path="res://scenes/player.tscn" id="4_3xumh"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kkyey"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_utigf"]
+normal = Vector2(0.9999383, 0.011110425)
+distance = -126.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1g4kx"]
+normal = Vector2(-0.9999741, 0.007194058)
+
+[node name="Circus" type="Node2D" unique_id=1422189708]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=970808448]
+offset_right = 640.0
+offset_bottom = 320.0
+texture = ExtResource("1_3xumh")
+
+[node name="Player" parent="." unique_id=1184130371 instance=ExtResource("4_3xumh")]
+position = Vector2(336, 191)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2111412114]
+position = Vector2(-3, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=360947896]
+position = Vector2(338, 232)
+shape = SubResource("WorldBoundaryShape2D_kkyey")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=508818835]
+position = Vector2(146, 146)
+shape = SubResource("WorldBoundaryShape2D_utigf")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=604224163]
+position = Vector2(626, 145)
+shape = SubResource("WorldBoundaryShape2D_1g4kx")
+
+[node name="Player2" parent="." unique_id=432099408 instance=ExtResource("4_3xumh")]
+position = Vector2(467, 210)
