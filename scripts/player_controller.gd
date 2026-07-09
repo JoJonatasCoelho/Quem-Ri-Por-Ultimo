@@ -9,6 +9,8 @@ extends CharacterBody2D
 #@export var acceleration : float = 10.0
 @export var jump_velocity : float = -450.0
 @export var immobile : bool = false
+
+@export var player_num: int = -1
 #endregion
 
 #region Nodes Export Group
@@ -68,6 +70,8 @@ var equiped_disgrace: Disgrace
 
 func _ready():
 	#initialize_animations()
+	$AnimatedSprite2D.material = $AnimatedSprite2D.material.duplicate()
+	_apply_character()
 	check_controls()
 	enter_normal_state()
 	
@@ -75,6 +79,20 @@ func _process(_delta: float) -> void:
 	if pausing_enabled:
 		handle_pausing()
 	handle_input()
+
+func _apply_character() -> void:
+	if self.player_num == 1:
+		$AnimatedSprite2D.sprite_frames = GlobalVals.characters[GlobalVals.p1_character].sprite
+		$AnimatedSprite2D.material.set_shader_parameter("original_palette", GlobalVals.characters[GlobalVals.p1_character].palettes[0])
+		$AnimatedSprite2D.material.set_shader_parameter("new_palette", GlobalVals.characters[GlobalVals.p1_character].palettes[GlobalVals.p1_palette])
+		$AnimatedSprite2D.play("idle")
+		print("Applying character for player ", player_num)
+	if self.player_num == 2:
+		$AnimatedSprite2D.sprite_frames = GlobalVals.characters[GlobalVals.p2_character].sprite
+		$AnimatedSprite2D.material.set_shader_parameter("original_palette", GlobalVals.characters[GlobalVals.p2_character].palettes[0])
+		$AnimatedSprite2D.material.set_shader_parameter("new_palette", GlobalVals.characters[GlobalVals.p2_character].palettes[GlobalVals.p2_palette])
+		$AnimatedSprite2D.play("idle")
+		print("Applying character for player ", player_num)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -144,12 +162,12 @@ func handle_movement() -> void:
 func play_movement_animation(animation: String) -> void:
 	if is_on_floor():
 		if animation == "walk":
-			WALK_ANIMATION.play("walk", 2)
+			WALK_ANIMATION.play("walk", 1)
 		if animation == "idle":
-			IDLE_ANIMATION.play("idle", 2)
+			IDLE_ANIMATION.play("idle", 1)
 	else:
 		if JUMP_ANIMATION:
-			JUMP_ANIMATION.play("jump", 2)
+			JUMP_ANIMATION.play("jump", 1.5)
 		
 
 func handle_pausing() -> void:
@@ -167,7 +185,7 @@ func handle_disgrace_animation() -> void:
 	print("nome da animação: ", animation_name)
 	if DISGRACE_ANIMATION.sprite_frames.has_animation(animation_name):
 		immobile = true
-		DISGRACE_ANIMATION.play(animation_name, 2)
+		DISGRACE_ANIMATION.play(animation_name, 1.5)
 		await DISGRACE_ANIMATION.animation_finished
 		immobile = false
 

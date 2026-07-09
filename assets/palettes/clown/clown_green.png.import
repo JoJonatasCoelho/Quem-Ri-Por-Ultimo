@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djsif7g27jchy"
-path="res://.godot/imported/Palhaço_rabisco.png-07a99e0d63247e266fec0d27d12b7ece.ctex"
+uid="uid://bwlaeqelm2aq0"
+path="res://.godot/imported/clown_green.png-688c06ee09649808c60d26cf2ba74f21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/placeholders/Palhaço_rabisco.png"
-dest_files=["res://.godot/imported/Palhaço_rabisco.png-07a99e0d63247e266fec0d27d12b7ece.ctex"]
+source_file="res://assets/palettes/clown/clown_green.png"
+dest_files=["res://.godot/imported/clown_green.png-688c06ee09649808c60d26cf2ba74f21.ctex"]
 
 [params]
 

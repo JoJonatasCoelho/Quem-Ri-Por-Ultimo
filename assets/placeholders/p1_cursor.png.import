@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://berwladgm0cnc"
-path="res://.godot/imported/paleta_magico_orange.png-28bc9f41db7421f85d182ec27efa50c5.ctex"
+uid="uid://b7fphkxuxsucc"
+path="res://.godot/imported/p1_cursor.png-559fcae5c33066423ae662eb90f9e760.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/palettes/paleta_magico_orange.png"
-dest_files=["res://.godot/imported/paleta_magico_orange.png-28bc9f41db7421f85d182ec27efa50c5.ctex"]
+source_file="res://assets/placeholders/p1_cursor.png"
+dest_files=["res://.godot/imported/p1_cursor.png-559fcae5c33066423ae662eb90f9e760.ctex"]
 
 [params]
 

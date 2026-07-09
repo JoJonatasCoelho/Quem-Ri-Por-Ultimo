@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl468bd2ssrg7"
-path="res://.godot/imported/paleta_magico_red.png-36fa462d7907621bc55793a5aae03751.ctex"
+uid="uid://b06h7o8wumokl"
+path="res://.godot/imported/paleta_magico_reverse.png-979be00e48a97af77b2e5f587931637f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/palettes/paleta_magico_red.png"
-dest_files=["res://.godot/imported/paleta_magico_red.png-36fa462d7907621bc55793a5aae03751.ctex"]
+source_file="res://assets/palettes/magic/paleta_magico_reverse.png"
+dest_files=["res://.godot/imported/paleta_magico_reverse.png-979be00e48a97af77b2e5f587931637f.ctex"]
 
 [params]
 
