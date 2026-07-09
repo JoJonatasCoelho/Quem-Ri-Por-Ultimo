@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8ee1ewnjk24f"
-path="res://.godot/imported/Palhaço_rabisco(v3)-anim.png-fd219712385693954972a84565c434d6.ctex"
+uid="uid://cgxqkg46jbhn5"
+path="res://.godot/imported/Palhaco_SpriteIdle.png-aa74e3624d6a8c7a123e4d309e402567.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/animations/Palhaço_rabisco(v3)-anim.png"
-dest_files=["res://.godot/imported/Palhaço_rabisco(v3)-anim.png-fd219712385693954972a84565c434d6.ctex"]
+source_file="res://assets/animations/Palhaco_SpriteIdle.png"
+dest_files=["res://.godot/imported/Palhaco_SpriteIdle.png-aa74e3624d6a8c7a123e4d309e402567.ctex"]
 
 [params]
 
