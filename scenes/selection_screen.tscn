@@ -161,7 +161,6 @@ offset_right = 96.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-select_mode = 1
 auto_width = true
 item_count = 2
 max_columns = 3

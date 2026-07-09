@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://beqbyatrhqjeo"]
+
+[ext_resource type="Script" uid="uid://cdnokuplia772" path="res://scripts/disgraces/projectile.gd" id="1_76gfg"]
+[ext_resource type="Texture2D" uid="uid://dodjcrgrp4sss" path="res://assets/animations/Gun.png" id="1_q2ljq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76gfg"]
+atlas = ExtResource("1_q2ljq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dk8s2"]
+atlas = ExtResource("1_q2ljq")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgbgt"]
+atlas = ExtResource("1_q2ljq")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36nc0"]
+atlas = ExtResource("1_q2ljq")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hc1k"]
+atlas = ExtResource("1_q2ljq")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ne3p"]
+atlas = ExtResource("1_q2ljq")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlrua"]
+atlas = ExtResource("1_q2ljq")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kkyey"]
+animations = [{
+"frames": [{
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_76gfg")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_dk8s2")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_xgbgt")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_36nc0")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_6hc1k")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_5ne3p")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_dlrua")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kkyey"]
+size = Vector2(14, 12)
+
+[node name="Gun" type="Node2D" unique_id=1815693898]
+script = ExtResource("1_76gfg")
+range = 300.0
+disgrace_name = "Gun"
+
+[node name="GunSprite" type="AnimatedSprite2D" parent="." unique_id=1457599044]
+sprite_frames = SubResource("SpriteFrames_kkyey")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.7896513
+
+[node name="CollectArea" type="Area2D" parent="." unique_id=1572474519]
+
+[node name="AreaCollision" type="CollisionShape2D" parent="CollectArea" unique_id=2005400629]
+shape = SubResource("RectangleShape2D_kkyey")
+
+[connection signal="body_entered" from="CollectArea" to="." method="_on_collect_area_body_entered"]
