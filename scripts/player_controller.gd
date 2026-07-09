@@ -70,7 +70,6 @@ func _process(_delta: float) -> void:
 	if pausing_enabled:
 		handle_pausing()
 
-
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -117,30 +116,34 @@ func handle_jumping() -> void:
 	if jumping_enabled:
 		if Input.is_action_just_pressed(controls.get("JUMP")) and is_on_floor():
 			velocity.y = jump_velocity
+			state = "on_air"
+			play_movement_animation("jump")
 
 func handle_movement() -> void:
 	if Input.is_action_pressed(controls.get("LEFT")):
 		WALK_ANIMATION.flip_h = true
 		velocity.x = -base_speed
-		if WALK_ANIMATION:
-			WALK_ANIMATION.play("walk", 2)
+		play_movement_animation("walk")
 			
 	elif Input.is_action_pressed(controls.get("RIGHT")):
 		WALK_ANIMATION.flip_h = false
 		velocity.x = base_speed
-		if WALK_ANIMATION:
-			WALK_ANIMATION.play("walk", 2)
+		play_movement_animation("walk")
 			
 	else:
 		velocity.x = 0
-		if IDLE_ANIMATION:
-			IDLE_ANIMATION.play("idle", 2)
+		play_movement_animation("idle")
 	
-func play_movement_animation() -> void:
-	if WALK_ANIMATION.animation == "walk":
-		pass
+func play_movement_animation(animation: String) -> void:
+	if is_on_floor():
+		if animation == "walk":
+			WALK_ANIMATION.play("walk", 2)
+		if animation == "idle":
+			IDLE_ANIMATION.play("idle", 2)
 	else:
-		WALK_ANIMATION.play("walk", 2)
+		if JUMP_ANIMATION:
+			JUMP_ANIMATION.play("jump", 2)
+		
 
 func handle_pausing() -> void:
 	pass
