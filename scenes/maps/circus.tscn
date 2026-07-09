@@ -33,15 +33,15 @@ position = Vector2(586, 263)
 position = Vector2(-3, 40)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=360947896]
-position = Vector2(338, 232)
+position = Vector2(338, 222)
 shape = SubResource("WorldBoundaryShape2D_kkyey")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=508818835]
-position = Vector2(146, 146)
+position = Vector2(192, 146)
 shape = SubResource("WorldBoundaryShape2D_utigf")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=604224163]
-position = Vector2(626, 145)
+position = Vector2(589, 145)
 shape = SubResource("WorldBoundaryShape2D_1g4kx")
 
 [node name="Player" parent="." unique_id=1184130371 instance=ExtResource("4_3xumh")]
