@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dq5ngtwbukg3u" path="res://scripts/level.gd" id="1_ccbov"]
 [ext_resource type="PackedScene" uid="uid://edsy444m7rf4" path="res://scenes/player.tscn" id="4_3xumh"]
 [ext_resource type="PackedScene" uid="uid://cwbxfq68r4idl" path="res://scenes/GUI/battle_ui.tscn" id="4_mvpml"]
+[ext_resource type="PackedScene" uid="uid://beqbyatrhqjeo" path="res://scenes/disgraces/gun.tscn" id="5_mvpml"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kkyey"]
 
@@ -33,18 +34,18 @@ position = Vector2(586, 263)
 position = Vector2(-3, 40)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=360947896]
-position = Vector2(338, 222)
+position = Vector2(338, 232)
 shape = SubResource("WorldBoundaryShape2D_kkyey")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=508818835]
-position = Vector2(192, 146)
+position = Vector2(146, 146)
 shape = SubResource("WorldBoundaryShape2D_utigf")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=604224163]
-position = Vector2(589, 145)
+position = Vector2(626, 145)
 shape = SubResource("WorldBoundaryShape2D_1g4kx")
 
-[node name="Player1" parent="." unique_id=1184130371 instance=ExtResource("4_3xumh")]
+[node name="Player1" parent="." unique_id=1184130371 groups=["players"] instance=ExtResource("4_3xumh")]
 position = Vector2(82, 35)
 player_num = 1
 controls = {
@@ -54,10 +55,11 @@ controls = {
 &"LEFT": "p1_left",
 &"PAUSE": "ui_cancel",
 &"RIGHT": "p1_right",
-&"UP": "p1_up"
+&"UP": "p1_up",
+"USE": "ui_focus_next"
 }
 
-[node name="Player2" parent="." unique_id=432099408 instance=ExtResource("4_3xumh")]
+[node name="Player2" parent="." unique_id=432099408 groups=["players"] instance=ExtResource("4_3xumh")]
 position = Vector2(138, 37)
 player_num = 2
 controls = {
@@ -67,7 +69,8 @@ controls = {
 &"LEFT": "p2_left",
 &"PAUSE": "ui_cancel",
 &"RIGHT": "p2_right",
-&"UP": "p2_up"
+&"UP": "p2_up",
+"USE": "ui_accept"
 }
 
 [node name="Main" parent="." unique_id=1801485757 instance=ExtResource("4_mvpml")]
@@ -75,3 +78,7 @@ offset_left = 15.0
 offset_top = 20.0
 offset_right = 15.0
 offset_bottom = 20.0
+
+[node name="Gun" parent="." unique_id=1815693898 instance=ExtResource("5_mvpml")]
+position = Vector2(314, 242)
+animation_name = "shot"
