@@ -65,6 +65,7 @@ var was_on_floor : bool = true
 
 func _ready():
 	#initialize_animations()
+	$AnimatedSprite2D.material = $AnimatedSprite2D.material.duplicate()
 	_apply_character()
 	check_controls()
 	enter_normal_state()
@@ -74,26 +75,18 @@ func _process(_delta: float) -> void:
 		handle_pausing()
 
 func _apply_character() -> void:
-	print("\nPRE RENDER \n")
-	print(GlobalVals.characters[GlobalVals.p1_character].palettes[0])
-	print(GlobalVals.characters[GlobalVals.p1_character].palettes[GlobalVals.p1_palette])
-	print(GlobalVals.characters[GlobalVals.p2_character].palettes[0])
-	print(GlobalVals.characters[GlobalVals.p2_character].palettes[GlobalVals.p2_palette])
 	if self.player_num == 1:
 		$AnimatedSprite2D.sprite_frames = GlobalVals.characters[GlobalVals.p1_character].sprite
 		$AnimatedSprite2D.material.set_shader_parameter("original_palette", GlobalVals.characters[GlobalVals.p1_character].palettes[0])
 		$AnimatedSprite2D.material.set_shader_parameter("new_palette", GlobalVals.characters[GlobalVals.p1_character].palettes[GlobalVals.p1_palette])
 		$AnimatedSprite2D.play("idle")
+		print("Applying character for player ", player_num)
 	if self.player_num == 2:
 		$AnimatedSprite2D.sprite_frames = GlobalVals.characters[GlobalVals.p2_character].sprite
 		$AnimatedSprite2D.material.set_shader_parameter("original_palette", GlobalVals.characters[GlobalVals.p2_character].palettes[0])
 		$AnimatedSprite2D.material.set_shader_parameter("new_palette", GlobalVals.characters[GlobalVals.p2_character].palettes[GlobalVals.p2_palette])
 		$AnimatedSprite2D.play("idle")
-	print("\nPOST RENDER \n")
-	print(GlobalVals.characters[GlobalVals.p1_character].palettes[0])
-	print(GlobalVals.characters[GlobalVals.p1_character].palettes[GlobalVals.p1_palette])
-	print(GlobalVals.characters[GlobalVals.p2_character].palettes[0])
-	print(GlobalVals.characters[GlobalVals.p2_character].palettes[GlobalVals.p2_palette])
+		print("Applying character for player ", player_num)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
