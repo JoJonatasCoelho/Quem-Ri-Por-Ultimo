@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dqfbk8g6g7kvq" path="res://assets/palettes/paleta_magico.png" id="4_4836g"]
 [ext_resource type="Texture2D" uid="uid://bk71lfwwkphbr" path="res://assets/placeholders/arrow.png" id="4_syhfi"]
 [ext_resource type="Texture2D" uid="uid://c6ylj7tq3wvda" path="res://assets/placeholders/arrow_selected.png" id="5_ddptc"]
+[ext_resource type="Texture2D" uid="uid://b06h7o8wumokl" path="res://assets/palettes/paleta_magico_reverse.png" id="6_xwqtl"]
+[ext_resource type="Texture2D" uid="uid://djsif7g27jchy" path="res://assets/placeholders/Palhaço_rabisco.png" id="6_y768y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_go57s"]
 shader = ExtResource("3_th2u4")
@@ -98,6 +100,27 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1g4kx"]
+shader = ExtResource("3_th2u4")
+shader_parameter/original_palette = ExtResource("4_4836g")
+shader_parameter/new_palette = ExtResource("6_xwqtl")
+shader_parameter/color_count = 7
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfl6m"]
+atlas = ExtResource("6_y768y")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_utigf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfl6m")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
 [node name="SelectionScreen" type="Node2D" unique_id=1064998752]
 script = ExtResource("1_ednkh")
 
@@ -167,6 +190,13 @@ offset_left = 410.0
 offset_top = 97.0
 offset_right = 510.0
 offset_bottom = 197.0
+
+[node name="CharacterSprite" type="AnimatedSprite2D" parent="CanvasLayer/Control/P2CharacterPanel" unique_id=508772443]
+material = SubResource("ShaderMaterial_1g4kx")
+position = Vector2(50, 50)
+scale = Vector2(0.64, 0.64)
+sprite_frames = SubResource("SpriteFrames_utigf")
+animation = &"idle"
 
 [node name="Left" type="TextureButton" parent="CanvasLayer/Control" unique_id=693569939]
 layout_mode = 0
