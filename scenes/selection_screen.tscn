@@ -1,0 +1,197 @@
+[gd_scene format=3 uid="uid://1e6p6atjfvs8"]
+
+[ext_resource type="Texture2D" uid="uid://dkjyku6w2qnti" path="res://assets/placeholders/magician_avatar.png" id="1_dyftk"]
+[ext_resource type="Script" uid="uid://dpg4lsj5xxdr0" path="res://scripts/selection_screen.gd" id="1_ednkh"]
+[ext_resource type="Texture2D" uid="uid://c0kwswouin1ak" path="res://assets/animations/magico_rabisco(v3)_spriteIdle(v2).png" id="3_2nlgg"]
+[ext_resource type="Shader" uid="uid://b6t1vorcrip0w" path="res://shaders/recolor_text.tres" id="3_th2u4"]
+[ext_resource type="Texture2D" uid="uid://dqfbk8g6g7kvq" path="res://assets/palettes/paleta_magico.png" id="4_4836g"]
+[ext_resource type="Texture2D" uid="uid://bk71lfwwkphbr" path="res://assets/placeholders/arrow.png" id="4_syhfi"]
+[ext_resource type="Texture2D" uid="uid://c6ylj7tq3wvda" path="res://assets/placeholders/arrow_selected.png" id="5_ddptc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_go57s"]
+shader = ExtResource("3_th2u4")
+shader_parameter/original_palette = ExtResource("4_4836g")
+shader_parameter/color_count = 7
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syhfi"]
+atlas = ExtResource("3_2nlgg")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddptc"]
+atlas = ExtResource("3_2nlgg")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_th2u4"]
+atlas = ExtResource("3_2nlgg")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4836g"]
+atlas = ExtResource("3_2nlgg")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y768y"]
+atlas = ExtResource("3_2nlgg")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwqtl"]
+atlas = ExtResource("3_2nlgg")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7my7a"]
+atlas = ExtResource("3_2nlgg")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5ai3"]
+atlas = ExtResource("3_2nlgg")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6atd4"]
+atlas = ExtResource("3_2nlgg")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ydr7"]
+atlas = ExtResource("3_2nlgg")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvnlr"]
+atlas = ExtResource("3_2nlgg")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kkyey"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syhfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddptc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_th2u4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4836g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y768y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwqtl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7my7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5ai3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6atd4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ydr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvnlr")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="SelectionScreen" type="Node2D" unique_id=1064998752]
+script = ExtResource("1_ednkh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1479806352]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=906207182]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AvailableCharactersPanel" type="Panel" parent="CanvasLayer/Control" unique_id=606827769]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -124.0
+offset_top = -109.0
+offset_right = 124.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ItemList" type="ItemList" parent="CanvasLayer/Control/AvailableCharactersPanel" unique_id=186910539]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -20.0
+offset_right = 96.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+select_mode = 1
+auto_width = true
+item_count = 2
+max_columns = 3
+item_0/text = "Magician"
+item_0/icon = ExtResource("1_dyftk")
+item_1/text = "Clown"
+item_1/icon = ExtResource("1_dyftk")
+
+[node name="P1CharacterPanel" type="Panel" parent="CanvasLayer/Control" unique_id=1908659759]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 93.0
+offset_right = 196.0
+offset_bottom = 193.0
+
+[node name="CharacterSprite" type="AnimatedSprite2D" parent="CanvasLayer/Control/P1CharacterPanel" unique_id=1478470537]
+material = SubResource("ShaderMaterial_go57s")
+position = Vector2(51, 52)
+sprite_frames = SubResource("SpriteFrames_kkyey")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="P2CharacterPanel" type="Panel" parent="CanvasLayer/Control" unique_id=774913942]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 97.0
+offset_right = 510.0
+offset_bottom = 197.0
+
+[node name="Left" type="TextureButton" parent="CanvasLayer/Control" unique_id=693569939]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 128.0
+offset_right = 94.0
+offset_bottom = 168.0
+texture_normal = ExtResource("4_syhfi")
+texture_pressed = ExtResource("5_ddptc")
+texture_hover = ExtResource("4_syhfi")
+texture_disabled = ExtResource("4_syhfi")
+texture_focused = ExtResource("4_syhfi")
+
+[node name="Right" type="TextureButton" parent="CanvasLayer/Control" unique_id=190141311]
+layout_mode = 0
+offset_left = 247.0
+offset_top = 128.0
+offset_right = 296.0
+offset_bottom = 168.0
+scale = Vector2(-1, 1)
+texture_normal = ExtResource("4_syhfi")
+texture_pressed = ExtResource("5_ddptc")
+texture_hover = ExtResource("4_syhfi")
+texture_disabled = ExtResource("4_syhfi")
+texture_focused = ExtResource("4_syhfi")
+
+[connection signal="pressed" from="CanvasLayer/Control/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Right" to="." method="_on_right_pressed"]

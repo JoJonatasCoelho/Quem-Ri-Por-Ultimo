@@ -65,6 +65,11 @@ func _ready():
 	#initialize_animations()
 	check_controls()
 	enter_normal_state()
+	
+func _process(_delta: float) -> void:
+	if pausing_enabled:
+		handle_pausing()
+
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -114,18 +119,28 @@ func handle_jumping() -> void:
 			velocity.y = jump_velocity
 
 func handle_movement() -> void:
-	if IDLE_ANIMATION:
-		IDLE_ANIMATION.play("idle", 2)
 	if Input.is_action_pressed(controls.get("LEFT")):
 		WALK_ANIMATION.flip_h = true
 		velocity.x = -base_speed
 		if WALK_ANIMATION:
-			WALK_ANIMATION.play("walk")
+			WALK_ANIMATION.play("walk", 2)
+			
 	elif Input.is_action_pressed(controls.get("RIGHT")):
 		WALK_ANIMATION.flip_h = false
 		velocity.x = base_speed
 		if WALK_ANIMATION:
-			WALK_ANIMATION.play("walk")
+			WALK_ANIMATION.play("walk", 2)
+			
 	else:
 		velocity.x = 0
+		if IDLE_ANIMATION:
+			IDLE_ANIMATION.play("idle", 2)
 	
+func play_movement_animation() -> void:
+	if WALK_ANIMATION.animation == "walk":
+		pass
+	else:
+		WALK_ANIMATION.play("walk", 2)
+
+func handle_pausing() -> void:
+	pass
