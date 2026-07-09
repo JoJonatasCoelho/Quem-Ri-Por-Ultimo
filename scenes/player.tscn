@@ -10,7 +10,7 @@ size = Vector2(36, 64)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xwqtl"]
 shader = ExtResource("2_qlg0r")
-shader_parameter/color_count = 0
+shader_parameter/color_count = 7
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
 atlas = ExtResource("2_dqkch")
@@ -185,4 +185,4 @@ shape = SubResource("RectangleShape2D_kkyey")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1522471878]
 material = SubResource("ShaderMaterial_xwqtl")
 sprite_frames = SubResource("SpriteFrames_kkyey")
-animation = &"idle"
+animation = &"walk"
