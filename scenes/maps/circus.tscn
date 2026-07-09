@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cd352m5k6qu80"]
 
 [ext_resource type="Texture2D" uid="uid://5vb2id3x2rmx" path="res://assets/placeholders/circus.png" id="1_3xumh"]
-[ext_resource type="Script" uid="uid://dq5ngtwbukg3u" path="res://scenes/maps/level.gd" id="1_ccbov"]
+[ext_resource type="Script" uid="uid://dq5ngtwbukg3u" path="res://scripts/level.gd" id="1_ccbov"]
 [ext_resource type="PackedScene" uid="uid://edsy444m7rf4" path="res://scenes/player.tscn" id="4_3xumh"]
 [ext_resource type="PackedScene" uid="uid://cwbxfq68r4idl" path="res://scenes/GUI/battle_ui.tscn" id="4_mvpml"]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cwbxfq68r4idl"]
 
-[ext_resource type="Texture2D" uid="uid://dkjyku6w2qnti" path="res://assets/placeholders/magician_avatar.png" id="1_diq8b"]
+[ext_resource type="Texture2D" uid="uid://dkjyku6w2qnti" path="res://assets/icons/characters/magician_avatar.png" id="1_diq8b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rcqwj"]
 bg_color = Color(0, 0, 0, 1)

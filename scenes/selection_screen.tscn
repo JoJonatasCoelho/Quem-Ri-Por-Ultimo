@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://1e6p6atjfvs8"]
 
-[ext_resource type="Texture2D" uid="uid://dkjyku6w2qnti" path="res://assets/placeholders/magician_avatar.png" id="1_dyftk"]
+[ext_resource type="Texture2D" uid="uid://dkjyku6w2qnti" path="res://assets/icons/characters/magician_avatar.png" id="1_dyftk"]
 [ext_resource type="Script" uid="uid://dpg4lsj5xxdr0" path="res://scripts/selection_screen.gd" id="1_ednkh"]
 [ext_resource type="Texture2D" uid="uid://c0kwswouin1ak" path="res://assets/animations/magico_rabisco(v3)_spriteIdle(v2).png" id="3_2nlgg"]
+[ext_resource type="Texture2D" uid="uid://bsfvtijl15gfm" path="res://assets/icons/characters/palhaco_avatar.png" id="3_7my7a"]
 [ext_resource type="Shader" uid="uid://b6t1vorcrip0w" path="res://shaders/recolor_text.tres" id="3_th2u4"]
-[ext_resource type="Texture2D" uid="uid://dqfbk8g6g7kvq" path="res://assets/palettes/paleta_magico.png" id="4_4836g"]
+[ext_resource type="Texture2D" uid="uid://dqfbk8g6g7kvq" path="res://assets/palettes/magic/paleta_magico.png" id="4_4836g"]
 [ext_resource type="Texture2D" uid="uid://bk71lfwwkphbr" path="res://assets/placeholders/arrow.png" id="4_syhfi"]
 [ext_resource type="Texture2D" uid="uid://c6ylj7tq3wvda" path="res://assets/placeholders/arrow_selected.png" id="5_ddptc"]
-[ext_resource type="Texture2D" uid="uid://b06h7o8wumokl" path="res://assets/palettes/paleta_magico_reverse.png" id="6_xwqtl"]
-[ext_resource type="Texture2D" uid="uid://djsif7g27jchy" path="res://assets/placeholders/Palhaço_rabisco.png" id="6_y768y"]
+[ext_resource type="Texture2D" uid="uid://d2nw7isir10ix" path="res://assets/placeholders/Palhaço_rabisco(v3).png" id="7_xwqtl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_go57s"]
 shader = ExtResource("3_th2u4")
@@ -100,21 +100,30 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="InputEventKey" id="InputEventKey_xwqtl"]
+device = -1
+keycode = 4194319
+
+[sub_resource type="Shortcut" id="Shortcut_3xumh"]
+events = [SubResource("InputEventKey_xwqtl")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_7my7a"]
+device = -1
+keycode = 4194321
+
+[sub_resource type="Shortcut" id="Shortcut_daek5"]
+events = [SubResource("InputEventKey_7my7a")]
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1g4kx"]
 shader = ExtResource("3_th2u4")
 shader_parameter/original_palette = ExtResource("4_4836g")
-shader_parameter/new_palette = ExtResource("6_xwqtl")
 shader_parameter/color_count = 7
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mfl6m"]
-atlas = ExtResource("6_y768y")
-region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_utigf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mfl6m")
+"texture": ExtResource("7_xwqtl")
 }],
 "loop": 1,
 "name": &"idle",
@@ -126,15 +135,16 @@ script = ExtResource("1_ednkh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1479806352]
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=906207182]
+[node name="CharacterSelection" type="Control" parent="CanvasLayer" unique_id=906207182]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="AvailableCharactersPanel" type="Panel" parent="CanvasLayer/Control" unique_id=606827769]
+[node name="AvailableCharactersPanel" type="Panel" parent="CanvasLayer/CharacterSelection" unique_id=606827769]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -147,81 +157,128 @@ offset_right = 124.0
 offset_bottom = -47.0
 grow_horizontal = 2
 grow_vertical = 0
+metadata/_edit_use_anchors_ = true
 
-[node name="ItemList" type="ItemList" parent="CanvasLayer/Control/AvailableCharactersPanel" unique_id=186910539]
+[node name="ItemList" type="ItemList" parent="CanvasLayer/CharacterSelection/AvailableCharactersPanel" unique_id=186910539]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.4516129
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -96.0
+anchor_bottom = 0.4516129
+offset_left = -111.0
 offset_top = -20.0
-offset_right = 96.0
-offset_bottom = 20.0
+offset_right = 111.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 select_mode = 1
 auto_width = true
 item_count = 2
-max_columns = 3
+max_columns = 2
+same_column_width = true
 item_0/text = "Magician"
 item_0/icon = ExtResource("1_dyftk")
 item_1/text = "Clown"
-item_1/icon = ExtResource("1_dyftk")
+item_1/icon = ExtResource("3_7my7a")
+metadata/_edit_use_anchors_ = true
 
-[node name="P1CharacterPanel" type="Panel" parent="CanvasLayer/Control" unique_id=1908659759]
+[node name="P1CharacterPanel" type="Panel" parent="CanvasLayer/CharacterSelection" unique_id=1908659759]
 layout_mode = 0
 offset_left = 96.0
 offset_top = 93.0
 offset_right = 196.0
 offset_bottom = 193.0
+metadata/_edit_use_anchors_ = true
 
-[node name="CharacterSprite" type="AnimatedSprite2D" parent="CanvasLayer/Control/P1CharacterPanel" unique_id=1478470537]
+[node name="CharacterSprite" type="AnimatedSprite2D" parent="CanvasLayer/CharacterSelection/P1CharacterPanel" unique_id=1478470537]
 material = SubResource("ShaderMaterial_go57s")
 position = Vector2(51, 52)
 sprite_frames = SubResource("SpriteFrames_kkyey")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="P2CharacterPanel" type="Panel" parent="CanvasLayer/Control" unique_id=774913942]
+[node name="LeftP1" type="TextureButton" parent="CanvasLayer/CharacterSelection/P1CharacterPanel" unique_id=693569939]
+layout_mode = 0
+offset_left = -51.0
+offset_top = 35.0
+offset_right = -2.0
+offset_bottom = 75.0
+action_mode = 0
+button_mask = 0
+shortcut = SubResource("Shortcut_3xumh")
+texture_normal = ExtResource("4_syhfi")
+texture_pressed = ExtResource("5_ddptc")
+texture_hover = ExtResource("4_syhfi")
+texture_disabled = ExtResource("4_syhfi")
+texture_focused = ExtResource("4_syhfi")
+metadata/_edit_use_anchors_ = true
+
+[node name="RightP1" type="TextureButton" parent="CanvasLayer/CharacterSelection/P1CharacterPanel" unique_id=190141311]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 35.0
+offset_right = 200.0
+offset_bottom = 75.0
+scale = Vector2(-1, 1)
+action_mode = 0
+button_mask = 0
+shortcut = SubResource("Shortcut_daek5")
+texture_normal = ExtResource("4_syhfi")
+texture_pressed = ExtResource("5_ddptc")
+texture_hover = ExtResource("4_syhfi")
+texture_disabled = ExtResource("4_syhfi")
+texture_focused = ExtResource("4_syhfi")
+metadata/_edit_use_anchors_ = true
+
+[node name="P2CharacterPanel" type="Panel" parent="CanvasLayer/CharacterSelection" unique_id=774913942]
 layout_mode = 0
 offset_left = 410.0
 offset_top = 97.0
 offset_right = 510.0
 offset_bottom = 197.0
+metadata/_edit_use_anchors_ = true
 
-[node name="CharacterSprite" type="AnimatedSprite2D" parent="CanvasLayer/Control/P2CharacterPanel" unique_id=508772443]
+[node name="CharacterSprite" type="AnimatedSprite2D" parent="CanvasLayer/CharacterSelection/P2CharacterPanel" unique_id=508772443]
 material = SubResource("ShaderMaterial_1g4kx")
 position = Vector2(50, 50)
-scale = Vector2(0.64, 0.64)
 sprite_frames = SubResource("SpriteFrames_utigf")
 animation = &"idle"
 
-[node name="Left" type="TextureButton" parent="CanvasLayer/Control" unique_id=693569939]
+[node name="LeftP2" type="TextureButton" parent="CanvasLayer/CharacterSelection/P2CharacterPanel" unique_id=1483541738]
 layout_mode = 0
-offset_left = 45.0
-offset_top = 128.0
-offset_right = 94.0
-offset_bottom = 168.0
+offset_left = -51.0
+offset_top = 35.0
+offset_right = -2.0
+offset_bottom = 75.0
+action_mode = 0
+button_mask = 0
+shortcut = SubResource("Shortcut_3xumh")
 texture_normal = ExtResource("4_syhfi")
 texture_pressed = ExtResource("5_ddptc")
 texture_hover = ExtResource("4_syhfi")
 texture_disabled = ExtResource("4_syhfi")
 texture_focused = ExtResource("4_syhfi")
+metadata/_edit_use_anchors_ = true
 
-[node name="Right" type="TextureButton" parent="CanvasLayer/Control" unique_id=190141311]
+[node name="RightP2" type="TextureButton" parent="CanvasLayer/CharacterSelection/P2CharacterPanel" unique_id=1687362703]
 layout_mode = 0
-offset_left = 247.0
-offset_top = 128.0
-offset_right = 296.0
-offset_bottom = 168.0
+offset_left = 151.0
+offset_top = 35.0
+offset_right = 200.0
+offset_bottom = 75.0
 scale = Vector2(-1, 1)
+action_mode = 0
+button_mask = 0
+shortcut = SubResource("Shortcut_daek5")
 texture_normal = ExtResource("4_syhfi")
 texture_pressed = ExtResource("5_ddptc")
 texture_hover = ExtResource("4_syhfi")
 texture_disabled = ExtResource("4_syhfi")
 texture_focused = ExtResource("4_syhfi")
+metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="CanvasLayer/Control/Left" to="." method="_on_left_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/Right" to="." method="_on_right_pressed"]
+[connection signal="button_down" from="CanvasLayer/CharacterSelection/P1CharacterPanel/LeftP1" to="." method="_on_left_p1_button_down"]
+[connection signal="button_down" from="CanvasLayer/CharacterSelection/P1CharacterPanel/RightP1" to="." method="_on_right_p1_button_down"]
+[connection signal="button_down" from="CanvasLayer/CharacterSelection/P2CharacterPanel/LeftP2" to="." method="_on_left_p2_button_down"]
+[connection signal="button_down" from="CanvasLayer/CharacterSelection/P2CharacterPanel/RightP2" to="." method="_on_right_p2_button_down"]
