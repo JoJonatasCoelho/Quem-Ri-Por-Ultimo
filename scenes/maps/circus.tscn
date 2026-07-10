@@ -34,15 +34,15 @@ position = Vector2(586, 263)
 position = Vector2(-3, 40)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=360947896]
-position = Vector2(338, 232)
+position = Vector2(338, 222)
 shape = SubResource("WorldBoundaryShape2D_kkyey")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=508818835]
-position = Vector2(146, 146)
+position = Vector2(192, 146)
 shape = SubResource("WorldBoundaryShape2D_utigf")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=604224163]
-position = Vector2(626, 145)
+position = Vector2(589, 145)
 shape = SubResource("WorldBoundaryShape2D_1g4kx")
 
 [node name="Player1" parent="." unique_id=1184130371 groups=["players"] instance=ExtResource("4_3xumh")]
@@ -56,7 +56,7 @@ controls = {
 &"PAUSE": "ui_cancel",
 &"RIGHT": "p1_right",
 &"UP": "p1_up",
-"USE": "ui_focus_next"
+"USE": "p1_interact"
 }
 
 [node name="Player2" parent="." unique_id=432099408 groups=["players"] instance=ExtResource("4_3xumh")]
@@ -70,7 +70,7 @@ controls = {
 &"PAUSE": "ui_cancel",
 &"RIGHT": "p2_right",
 &"UP": "p2_up",
-"USE": "ui_accept"
+"USE": "p2_interact"
 }
 
 [node name="Main" parent="." unique_id=1801485757 instance=ExtResource("4_mvpml")]
