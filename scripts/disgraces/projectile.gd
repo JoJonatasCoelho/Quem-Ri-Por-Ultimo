@@ -41,8 +41,9 @@ func use() -> void:
 	var spawn_position = base_position.global_position
 	
 	player.remove_child(self)
+	print(activation_time)
 	player.get_tree().current_scene.add_child(self)
-	
+
 	self.global_position = spawn_position
 	projectile_sprite.visible = true
 	self.is_fired = true

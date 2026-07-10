@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://cd352m5k6qu80"]
 
 [ext_resource type="Texture2D" uid="uid://5vb2id3x2rmx" path="res://assets/placeholders/circus.png" id="1_3xumh"]
-[ext_resource type="Script" uid="uid://dq5ngtwbukg3u" path="res://scripts/level.gd" id="1_ccbov"]
+[ext_resource type="Script" uid="uid://dq5ngtwbukg3u" path="res://scripts/core/level.gd" id="1_ccbov"]
 [ext_resource type="PackedScene" uid="uid://edsy444m7rf4" path="res://scenes/player.tscn" id="4_3xumh"]
 [ext_resource type="PackedScene" uid="uid://cwbxfq68r4idl" path="res://scenes/GUI/battle_ui.tscn" id="4_mvpml"]
 [ext_resource type="PackedScene" uid="uid://beqbyatrhqjeo" path="res://scenes/disgraces/gun.tscn" id="5_mvpml"]
+[ext_resource type="PackedScene" uid="uid://dhf1r8314i177" path="res://scenes/disgraces/tv.tscn" id="6_daek5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kkyey"]
 
@@ -14,6 +15,27 @@ distance = -126.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1g4kx"]
 normal = Vector2(-0.9999741, 0.007194058)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_utigf"]
+a = Vector2(80, 10)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_daek5"]
+a = Vector2(35, 10)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_33em3"]
+a = Vector2(45, 10)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_76i8t"]
+a = Vector2(67, -33)
+b = Vector2(-8, 29)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ahyvy"]
+a = Vector2(28, 30)
+b = Vector2(-8, 29)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ec7s4"]
+a = Vector2(32, 26)
+b = Vector2(-8, 29)
 
 [node name="Circus" type="Node2D" unique_id=1422189708 node_paths=PackedStringArray("players_positions")]
 script = ExtResource("1_ccbov")
@@ -30,20 +52,84 @@ position = Vector2(62, 265)
 [node name="Player2Spawn" type="Marker2D" parent="." unique_id=273188991]
 position = Vector2(586, 263)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2111412114]
+[node name="SoccerGame" parent="." unique_id=785939516 instance=ExtResource("6_daek5")]
+position = Vector2(128, 112)
+laugh_available = 10.0
+disgrace_name = null
+activation_time = 10.0
+
+[node name="Level Limits" type="Node2D" parent="." unique_id=123536392]
+
+[node name="LevelBoundaries" type="StaticBody2D" parent="Level Limits" unique_id=2111412114]
 position = Vector2(-3, 40)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=360947896]
+[node name="DownBoundary" type="CollisionShape2D" parent="Level Limits/LevelBoundaries" unique_id=360947896]
 position = Vector2(338, 222)
 shape = SubResource("WorldBoundaryShape2D_kkyey")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=508818835]
+[node name="LeftBoundary2" type="CollisionShape2D" parent="Level Limits/LevelBoundaries" unique_id=508818835]
 position = Vector2(192, 146)
 shape = SubResource("WorldBoundaryShape2D_utigf")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=604224163]
+[node name="RightBoundary" type="CollisionShape2D" parent="Level Limits/LevelBoundaries" unique_id=604224163]
 position = Vector2(589, 145)
 shape = SubResource("WorldBoundaryShape2D_1g4kx")
+
+[node name="Plataforms" type="StaticBody2D" parent="Level Limits" unique_id=99541557]
+
+[node name="Plataform1" type="CollisionShape2D" parent="Level Limits/Plataforms" unique_id=98948165]
+position = Vector2(92, 128)
+shape = SubResource("SegmentShape2D_utigf")
+one_way_collision = true
+debug_color = Color(0.6039216, 0.2901961, 0.8666667, 1)
+
+[node name="Plataform2" type="CollisionShape2D" parent="Level Limits/Plataforms" unique_id=1252697706]
+position = Vector2(85, 179)
+shape = SubResource("SegmentShape2D_daek5")
+one_way_collision = true
+debug_color = Color(0.6039216, 0.2901961, 0.8666667, 1)
+
+[node name="Plataform3" type="CollisionShape2D" parent="Level Limits/Plataforms" unique_id=681669421]
+position = Vector2(96, 209)
+shape = SubResource("SegmentShape2D_33em3")
+one_way_collision = true
+debug_color = Color(0.6039216, 0.2901961, 0.8666667, 1)
+
+[node name="Plataform4" type="CollisionShape2D" parent="Level Limits/Plataforms" unique_id=1173170210]
+position = Vector2(156, 196)
+shape = SubResource("SegmentShape2D_33em3")
+one_way_collision = true
+debug_color = Color(0.6039216, 0.2901961, 0.8666667, 1)
+
+[node name="Plataform5" type="CollisionShape2D" parent="Level Limits/Plataforms" unique_id=419193617]
+position = Vector2(213, 193)
+shape = SubResource("SegmentShape2D_33em3")
+one_way_collision = true
+debug_color = Color(0.6039216, 0.2901961, 0.8666667, 1)
+
+[node name="Plataform6" type="CollisionShape2D" parent="Level Limits/Plataforms" unique_id=1839363846]
+position = Vector2(179, 171)
+shape = SubResource("SegmentShape2D_33em3")
+one_way_collision = true
+debug_color = Color(0.6039216, 0.2901961, 0.8666667, 1)
+
+[node name="Plataform7" type="CollisionShape2D" parent="Level Limits/Plataforms" unique_id=1996322552]
+position = Vector2(335, 212)
+shape = SubResource("SegmentShape2D_76i8t")
+one_way_collision = true
+debug_color = Color(0.6039216, 0.2901961, 0.8666667, 1)
+
+[node name="Plataform8" type="CollisionShape2D" parent="Level Limits/Plataforms" unique_id=155522573]
+position = Vector2(278, 124)
+shape = SubResource("SegmentShape2D_ahyvy")
+one_way_collision = true
+debug_color = Color(0.6039216, 0.2901961, 0.8666667, 1)
+
+[node name="Plataform9" type="CollisionShape2D" parent="Level Limits/Plataforms" unique_id=1057719423]
+position = Vector2(403, 124)
+shape = SubResource("SegmentShape2D_ec7s4")
+one_way_collision = true
+debug_color = Color(0.6039216, 0.2901961, 0.8666667, 1)
 
 [node name="Player1" parent="." unique_id=1184130371 groups=["players"] instance=ExtResource("4_3xumh")]
 position = Vector2(82, 35)

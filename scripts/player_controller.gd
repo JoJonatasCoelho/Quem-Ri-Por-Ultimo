@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name PlayerController
+
 #region Character Export Group
 
 @export_category("Character")
@@ -177,6 +179,7 @@ func handle_input() -> void:
 	if Input.is_action_just_pressed(controls.get("USE")):
 		if has_disgrace:
 			handle_disgrace_animation()
+			await get_tree().create_timer(equiped_disgrace.activation_time ).timeout
 			equiped_disgrace.use()
 			
 func handle_disgrace_animation() -> void:
@@ -185,6 +188,7 @@ func handle_disgrace_animation() -> void:
 	print("nome da animação: ", animation_name)
 	if DISGRACE_ANIMATION.sprite_frames.has_animation(animation_name):
 		immobile = true
+		velocity.x = 0
 		DISGRACE_ANIMATION.play(animation_name, 1.5)
 		await DISGRACE_ANIMATION.animation_finished
 		immobile = false
@@ -199,3 +203,11 @@ func equip(disgrace: Disgrace) -> void:
 func unequip() -> void:
 	has_disgrace = false
 	equiped_disgrace.reparent.call_deferred(self.get_parent(), false)
+	
+func handle_disgrace_event(disgrace: Disgrace):
+	if DISGRACE_ANIMATION.sprite_frames.has_animation(disgrace.animation_name):
+		immobile = true
+		velocity.x = 0
+		DISGRACE_ANIMATION.play(disgrace.animation_name)
+		await get_tree().create_timer(disgrace.activation_time ).timeout
+		immobile = false	

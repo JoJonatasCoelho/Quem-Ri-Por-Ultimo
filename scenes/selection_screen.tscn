@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://1e6p6atjfvs8"]
 
 [ext_resource type="Texture2D" uid="uid://dkjyku6w2qnti" path="res://assets/icons/characters/magician_avatar.png" id="1_dyftk"]
-[ext_resource type="Script" uid="uid://dpg4lsj5xxdr0" path="res://scripts/selection_screen.gd" id="1_ednkh"]
+[ext_resource type="Script" uid="uid://dpg4lsj5xxdr0" path="res://scripts/core/selection_screen.gd" id="1_ednkh"]
 [ext_resource type="Texture2D" uid="uid://kxjyos4rkxv5" path="res://assets/placeholders/backstage.png" id="2_4ydr7"]
 [ext_resource type="Texture2D" uid="uid://bsfvtijl15gfm" path="res://assets/icons/characters/palhaco_avatar.png" id="3_7my7a"]
 [ext_resource type="Shader" uid="uid://b6t1vorcrip0w" path="res://shaders/recolor_text.tres" id="3_th2u4"]

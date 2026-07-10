@@ -68,6 +68,7 @@ size = Vector2(12, 8)
 script = ExtResource("1_76gfg")
 projectile_sprite = NodePath("BulletSprite")
 disgrace_name = "Gun"
+activation_time = 1.5
 
 [node name="GunSprite" type="AnimatedSprite2D" parent="." unique_id=1457599044]
 sprite_frames = SubResource("SpriteFrames_kkyey")
@@ -76,6 +77,7 @@ autoplay = "idle"
 frame_progress = 0.7896513
 
 [node name="CollectArea" type="Area2D" parent="." unique_id=1572474519]
+collision_mask = 2
 
 [node name="AreaCollision" type="CollisionShape2D" parent="CollectArea" unique_id=2005400629]
 shape = SubResource("RectangleShape2D_kkyey")
