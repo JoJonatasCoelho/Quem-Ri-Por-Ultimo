@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dlx3b7bbc8g7x"]
+
+[ext_resource type="Texture2D" uid="uid://bk71lfwwkphbr" path="res://assets/placeholders/arrow.png" id="1_tbt31"]
+
+[node name="Menu" type="Control" unique_id=1849886522]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuButtons" type="VBoxContainer" parent="." unique_id=1157812971]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 43.0
+offset_top = -18.0
+offset_right = 83.0
+offset_bottom = 22.0
+grow_vertical = 2
+
+[node name="Multiplayer" type="TextureButton" parent="MenuButtons" unique_id=1546228224]
+layout_mode = 2
+texture_normal = ExtResource("1_tbt31")
+
+[node name="Singleplayer" type="TextureButton" parent="MenuButtons" unique_id=1802126510]
+layout_mode = 2
+texture_normal = ExtResource("1_tbt31")
+
+[node name="Configuration" type="TextureButton" parent="MenuButtons" unique_id=1186435534]
+layout_mode = 2
+texture_normal = ExtResource("1_tbt31")
+
+[node name="Sair" type="TextureButton" parent="MenuButtons" unique_id=735516238]
+layout_mode = 2
+texture_normal = ExtResource("1_tbt31")
