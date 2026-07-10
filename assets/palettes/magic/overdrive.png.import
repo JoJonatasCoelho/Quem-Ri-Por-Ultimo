@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl468bd2ssrg7"
-path="res://.godot/imported/paleta_magico_red.png-320a8ea96da5714335d1a6b9a008bee6.ctex"
+uid="uid://bxvcjqtr07k0u"
+path="res://.godot/imported/overdrive.png-aac74554f0d7bf22cb5a380574e0a267.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/palettes/magic/paleta_magico_red.png"
-dest_files=["res://.godot/imported/paleta_magico_red.png-320a8ea96da5714335d1a6b9a008bee6.ctex"]
+source_file="res://assets/palettes/magic/overdrive.png"
+dest_files=["res://.godot/imported/overdrive.png-aac74554f0d7bf22cb5a380574e0a267.ctex"]
 
 [params]
 

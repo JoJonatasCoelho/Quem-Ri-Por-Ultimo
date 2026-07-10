@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdmgndslle4hq"
-path="res://.godot/imported/clown_reverse.png-d43e1534c415b6932d6431c03f609aae.ctex"
+uid="uid://6gqdpdh51x1v"
+path="res://.godot/imported/napolitano.png-cd1c3bfcd121903a6a25a80c83109ad9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/palettes/clown/clown_reverse.png"
-dest_files=["res://.godot/imported/clown_reverse.png-d43e1534c415b6932d6431c03f609aae.ctex"]
+source_file="res://assets/palettes/magic/napolitano.png"
+dest_files=["res://.godot/imported/napolitano.png-cd1c3bfcd121903a6a25a80c83109ad9.ctex"]
 
 [params]
 

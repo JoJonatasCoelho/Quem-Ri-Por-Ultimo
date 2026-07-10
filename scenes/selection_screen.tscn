@@ -2,12 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://dkjyku6w2qnti" path="res://assets/icons/characters/magician_avatar.png" id="1_dyftk"]
 [ext_resource type="Script" uid="uid://dpg4lsj5xxdr0" path="res://scripts/selection_screen.gd" id="1_ednkh"]
+[ext_resource type="Texture2D" uid="uid://kxjyos4rkxv5" path="res://assets/placeholders/backstage.png" id="2_4ydr7"]
 [ext_resource type="Texture2D" uid="uid://bsfvtijl15gfm" path="res://assets/icons/characters/palhaco_avatar.png" id="3_7my7a"]
 [ext_resource type="Shader" uid="uid://b6t1vorcrip0w" path="res://shaders/recolor_text.tres" id="3_th2u4"]
 [ext_resource type="Texture2D" uid="uid://bk71lfwwkphbr" path="res://assets/placeholders/arrow.png" id="4_syhfi"]
+[ext_resource type="Texture2D" uid="uid://di7wkv2xog8n6" path="res://assets/placeholders/frame.png" id="5_6atd4"]
 [ext_resource type="Texture2D" uid="uid://c6ylj7tq3wvda" path="res://assets/placeholders/arrow_selected.png" id="5_ddptc"]
+[ext_resource type="Texture2D" uid="uid://b3dcp4vc3gm78" path="res://assets/placeholders/player1_name.png" id="9_7my7a"]
+[ext_resource type="Texture2D" uid="uid://dmmv7wsnkhlpp" path="res://assets/placeholders/player2_name.png" id="10_l5ai3"]
 [ext_resource type="Texture2D" uid="uid://b7fphkxuxsucc" path="res://assets/placeholders/p1_cursor.png" id="11_6atd4"]
 [ext_resource type="Texture2D" uid="uid://c6a087f2gh0l8" path="res://assets/placeholders/p2_cursor.png" id="12_4ydr7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l5ai3"]
+texture = ExtResource("5_6atd4")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_go57s"]
 shader = ExtResource("3_th2u4")
@@ -33,6 +40,9 @@ unicode = 100
 [sub_resource type="Shortcut" id="Shortcut_7my7a"]
 resource_local_to_scene = true
 events = [SubResource("InputEventKey_xwqtl")]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7my7a"]
+texture = ExtResource("5_6atd4")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1g4kx"]
 shader = ExtResource("3_th2u4")
@@ -71,6 +81,12 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="Backstage" type="TextureRect" parent="CanvasLayer/CharacterSelection" unique_id=470366070]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_4ydr7")
+
 [node name="CharactersGrid" type="GridContainer" parent="CanvasLayer/CharacterSelection" unique_id=1895811346]
 layout_mode = 1
 anchors_preset = -1
@@ -83,7 +99,7 @@ offset_top = -15.960022
 offset_right = 30.5
 offset_bottom = 16.039978
 grow_horizontal = 2
-grow_vertical = 0
+theme_override_constants/h_separation = 2
 columns = 2
 metadata/_edit_use_anchors_ = true
 
@@ -105,11 +121,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -190.0
-offset_top = -80.0
+offset_top = 20.0
 offset_right = -90.0
-offset_bottom = 20.0
+offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_l5ai3")
 
 [node name="CharacterSprite" type="AnimatedSprite2D" parent="CanvasLayer/CharacterSelection/P1CharacterPanel" unique_id=1478470537]
 material = SubResource("ShaderMaterial_go57s")
@@ -160,11 +177,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 90.0
-offset_top = -80.0
+offset_top = 20.0
 offset_right = 190.0
-offset_bottom = 20.0
+offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7my7a")
+metadata/_edit_use_anchors_ = true
 
 [node name="CharacterSprite" type="AnimatedSprite2D" parent="CanvasLayer/CharacterSelection/P2CharacterPanel" unique_id=508772443]
 material = SubResource("ShaderMaterial_1g4kx")
@@ -222,6 +241,36 @@ offset_right = 32.0
 offset_bottom = 32.0
 texture = ExtResource("12_4ydr7")
 stretch_mode = 3
+
+[node name="P1Name" type="TextureRect" parent="CanvasLayer/CharacterSelection" unique_id=929086290]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = -152.0
+offset_right = -76.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_7my7a")
+
+[node name="P2Name" type="TextureRect" parent="CanvasLayer/CharacterSelection" unique_id=2132785764]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 76.0
+offset_top = -152.0
+offset_right = 204.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_l5ai3")
 
 [connection signal="pressed" from="CanvasLayer/CharacterSelection/P1CharacterPanel/LeftP1" to="." method="_on_left_p_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/CharacterSelection/P1CharacterPanel/RightP1" to="." method="_on_right_p_1_pressed"]

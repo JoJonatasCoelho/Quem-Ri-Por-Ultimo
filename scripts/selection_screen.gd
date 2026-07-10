@@ -3,6 +3,9 @@ extends Node2D
 @onready var player1_sprite: AnimatedSprite2D = $CanvasLayer/CharacterSelection/P1CharacterPanel/CharacterSprite
 @onready var player2_sprite: AnimatedSprite2D = $CanvasLayer/CharacterSelection/P2CharacterPanel/CharacterSprite
 
+@onready var player1_panel: StyleBoxTexture = $CanvasLayer/CharacterSelection/P1CharacterPanel.get_theme_stylebox("panel")
+@onready var player2_panel: StyleBoxTexture = $CanvasLayer/CharacterSelection/P2CharacterPanel.get_theme_stylebox("panel")
+
 @onready var characters_grid: GridContainer = $CanvasLayer/CharacterSelection/CharactersGrid
 @onready var characters: Array[Node] = characters_grid.get_children()
 
@@ -53,6 +56,7 @@ func _process(_delta: float) -> void:
 				p1_rightbutton.disabled = true
 				p1_rightbutton.hide()
 				p1_state = PlayerState.SELECT_CHARACTER
+				player1_panel.texture = load("res://assets/placeholders/frame.png")
 			if Input.is_action_just_pressed("p1_interact"):
 				p1_leftbutton.disabled = true
 				p1_leftbutton.hide()
@@ -70,6 +74,7 @@ func _process(_delta: float) -> void:
 				p2_rightbutton.disabled = true
 				p2_rightbutton.hide()
 				p2_state = PlayerState.SELECT_CHARACTER
+				player2_panel.texture = load("res://assets/placeholders/frame.png")
 			if Input.is_action_just_pressed("p2_interact"):
 				p2_leftbutton.disabled = true
 				p2_leftbutton.hide()
@@ -97,6 +102,7 @@ func update_p1_cursor():
 		p1_leftbutton.show()
 		p1_rightbutton.disabled = false
 		p1_rightbutton.show()
+		player1_panel.texture = load("res://assets/placeholders/frame_p1_select.png")
 		
 	
 func update_p2_cursor():
@@ -119,6 +125,7 @@ func update_p2_cursor():
 		p2_leftbutton.show()
 		p2_rightbutton.disabled = false
 		p2_rightbutton.show()
+		player2_panel.texture = load("res://assets/placeholders/frame_p2_select.png")
 
 func apply_palette(sprite: AnimatedSprite2D, palettes: Array, current_palette: int):
 	sprite.material.set_shader_parameter("new_palette", palettes[current_palette])
