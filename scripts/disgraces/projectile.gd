@@ -1,45 +1,57 @@
 extends Disgrace
 
-@export var projectile_speed: float = 10.0
-@export	var shot_range : float = 50.0 
+@export var projectile_speed: float = 400.0 
+@export var shot_range : float = 500.0 
 @export var projectile_sprite: Sprite2D
 
+var is_fired: bool = false
+var direction: Vector2 = Vector2.ZERO
+var distance_traveled: float = 0.0
 
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-func _process(_delta: float) -> void:
 	pass
 
+func _physics_process(delta: float) -> void:
+	if is_fired:
+		var movement = direction * projectile_speed * delta
+		global_position += movement
+		distance_traveled += movement.length()
+		
+		if distance_traveled >= shot_range:
+			queue_free()
 
 func _on_collect_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("players") and !body.has_disgrace:
-		if self.get_parent().is_in_group("players"):
-			self.get_parent().unequip()
-		body.equip(self)
+	if is_fired:
+		handle_contact(body)
+	else:
+		if body.is_in_group("players") and !body.has_disgrace:
+			if self.get_parent().is_in_group("players"):
+				self.get_parent().unequip()
+			body.equip(self)
 		
 func use() -> void:
 	var player = get_parent()
-	var ray_cast = player.get_node("RayCast2D")
 	var base_position = player.get_node("DisgraceUsePosition")
 	
 	if player.WALK_ANIMATION.flip_h == true:
-		ray_cast.target_position = Vector2(-shot_range, 0)
-		ray_cast.position.x = -abs(base_position.position.x) 
+		direction = Vector2.LEFT
 	else:
-		ray_cast.target_position = Vector2(shot_range, 0)
-		ray_cast.position.x = abs(base_position.position.x)
+		direction = Vector2.RIGHT
 	
-	ray_cast.force_raycast_update()
-	if ray_cast.is_colliding():
-		var collider = ray_cast.get_collider()
-		handle_contact(collider)
+	var spawn_position = base_position.global_position
+	
+	player.remove_child(self)
+	player.get_tree().current_scene.add_child(self)
+	
+	self.global_position = spawn_position
+	projectile_sprite.visible = true
+	self.is_fired = true
+	
 	player.has_disgrace = false
 	player.equiped_disgrace = null
-	self.queue_free()
 
 func handle_contact(collider: Node2D):
 	print("sucessow?")
 	if collider.is_in_group("players"):
 		print("É sucessow")
+	queue_free()

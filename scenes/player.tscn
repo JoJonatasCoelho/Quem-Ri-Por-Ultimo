@@ -415,8 +415,4 @@ animation = &"walk"
 position = Vector2(0, -64)
 
 [node name="DisgraceUsePosition" type="Marker2D" parent="." unique_id=2093468048]
-position = Vector2(0, -64)
-
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1595161513]
-enabled = false
-target_position = Vector2(50, 0)
+position = Vector2(23, 7)
