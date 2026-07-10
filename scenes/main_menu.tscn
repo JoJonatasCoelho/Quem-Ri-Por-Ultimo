@@ -1,8 +1,16 @@
 [gd_scene format=3 uid="uid://ya4452pypnur"]
 
 [ext_resource type="Script" uid="uid://clpkt0dmjc81x" path="res://scripts/core/main_menu.gd" id="1_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://bk71lfwwkphbr" path="res://assets/placeholders/arrow.png" id="2_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://bg70qhek574by" path="res://assets/placeholders/menu.png" id="2_wu84c"]
+[ext_resource type="Texture2D" uid="uid://do5y1vuyv15fj" path="res://assets/placeholders/menubuttonsbg.png" id="3_oa1go"]
+[ext_resource type="Texture2D" uid="uid://dmlaq6fxbu5r2" path="res://assets/placeholders/1player.png" id="3_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://cweegm2kqjmg1" path="res://assets/placeholders/2player.png" id="4_oa1go"]
+[ext_resource type="Texture2D" uid="uid://b0ry7o0naykkn" path="res://assets/placeholders/1player_selected.png" id="5_lgwnu"]
+[ext_resource type="Texture2D" uid="uid://b30lhx1ok3db2" path="res://assets/placeholders/config.png" id="5_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://bfhmuch5dr1ie" path="res://assets/placeholders/exit.png" id="6_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://dmhnvkfmoajyf" path="res://assets/placeholders/2player_selected.png" id="7_flqon"]
+[ext_resource type="Texture2D" uid="uid://buke2mqn1aygu" path="res://assets/placeholders/config_selected.png" id="9_rcqid"]
+[ext_resource type="Texture2D" uid="uid://bjorgykckgkc5" path="res://assets/placeholders/exit_selected.png" id="11_1ajci"]
 
 [node name="Menu" type="Control" unique_id=1849886522]
 layout_mode = 3
@@ -19,34 +27,53 @@ offset_right = 640.0
 offset_bottom = 360.0
 texture = ExtResource("2_wu84c")
 
-[node name="MenuButtons" type="VBoxContainer" parent="." unique_id=1157812971]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=159568008]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 43.0
-offset_top = -18.0
-offset_right = 83.0
-offset_bottom = 22.0
+anchors_preset = -1
+anchor_left = 0.052
+anchor_top = 0.65000004
+anchor_right = 0.052
+anchor_bottom = 0.65000004
+offset_left = -0.27999878
+offset_top = -104.000015
+offset_right = 159.72
+offset_bottom = 103.999985
 grow_vertical = 2
+texture = ExtResource("3_oa1go")
 
-[node name="Multiplayer" type="TextureButton" parent="MenuButtons" unique_id=1546228224]
+[node name="MenuButtons" type="VBoxContainer" parent="TextureRect" unique_id=1157812971]
+layout_mode = 1
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 155.0
+offset_bottom = 202.0
+theme_override_constants/separation = 14
+
+[node name="Singleplayer" type="TextureButton" parent="TextureRect/MenuButtons" unique_id=1802126510]
 layout_mode = 2
-texture_normal = ExtResource("2_bqqt6")
+texture_normal = ExtResource("3_rtw2f")
+texture_pressed = ExtResource("5_lgwnu")
+texture_hover = ExtResource("5_lgwnu")
 
-[node name="Singleplayer" type="TextureButton" parent="MenuButtons" unique_id=1802126510]
+[node name="Multiplayer" type="TextureButton" parent="TextureRect/MenuButtons" unique_id=1546228224]
 layout_mode = 2
-texture_normal = ExtResource("2_bqqt6")
+texture_normal = ExtResource("4_oa1go")
+texture_pressed = ExtResource("7_flqon")
+texture_hover = ExtResource("7_flqon")
 
-[node name="Configuration" type="TextureButton" parent="MenuButtons" unique_id=1186435534]
+[node name="Configuration" type="TextureButton" parent="TextureRect/MenuButtons" unique_id=1186435534]
 layout_mode = 2
-texture_normal = ExtResource("2_bqqt6")
+texture_normal = ExtResource("5_tbmy8")
+texture_pressed = ExtResource("9_rcqid")
+texture_hover = ExtResource("9_rcqid")
 
-[node name="Sair" type="TextureButton" parent="MenuButtons" unique_id=735516238]
+[node name="Sair" type="TextureButton" parent="TextureRect/MenuButtons" unique_id=735516238]
 layout_mode = 2
-texture_normal = ExtResource("2_bqqt6")
+texture_normal = ExtResource("6_jk1qb")
+texture_pressed = ExtResource("11_1ajci")
+texture_hover = ExtResource("11_1ajci")
 
-[connection signal="pressed" from="MenuButtons/Multiplayer" to="." method="_on_multiplayer_pressed"]
-[connection signal="pressed" from="MenuButtons/Singleplayer" to="." method="_on_singleplayer_pressed"]
-[connection signal="pressed" from="MenuButtons/Configuration" to="." method="_on_configuration_pressed"]
-[connection signal="pressed" from="MenuButtons/Sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="TextureRect/MenuButtons/Singleplayer" to="." method="_on_singleplayer_pressed"]
+[connection signal="pressed" from="TextureRect/MenuButtons/Multiplayer" to="." method="_on_multiplayer_pressed"]
+[connection signal="pressed" from="TextureRect/MenuButtons/Configuration" to="." method="_on_configuration_pressed"]
+[connection signal="pressed" from="TextureRect/MenuButtons/Sair" to="." method="_on_sair_pressed"]
