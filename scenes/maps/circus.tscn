@@ -55,7 +55,6 @@ position = Vector2(586, 263)
 [node name="SoccerGame" parent="." unique_id=785939516 instance=ExtResource("6_daek5")]
 position = Vector2(128, 112)
 laugh_available = 10.0
-disgrace_name = null
 activation_time = 10.0
 
 [node name="Level Limits" type="Node2D" parent="." unique_id=123536392]

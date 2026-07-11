@@ -7,6 +7,7 @@ extends Disgrace
 var is_fired: bool = false
 var direction: Vector2 = Vector2.ZERO
 var distance_traveled: float = 0.0
+var shooter: Node2D
 
 func _ready() -> void:
 	pass
@@ -41,7 +42,7 @@ func use() -> void:
 	var spawn_position = base_position.global_position
 	
 	player.remove_child(self)
-	print(activation_time)
+	shooter = player
 	player.get_tree().current_scene.add_child(self)
 
 	self.global_position = spawn_position
@@ -52,6 +53,9 @@ func use() -> void:
 	player.equiped_disgrace = null
 
 func handle_contact(collider: Node2D):
+	if collider == shooter:
+		return
+		
 	print("sucessow?")
 	if collider.is_in_group("players"):
 		print("É sucessow")

@@ -60,12 +60,54 @@ class_name PlayerController
 
 var speed : float = base_speed
 var current_speed : float = 0.0
-var state : String = "normal"
 var low_ceiling : bool = false
 var was_on_floor : bool = true
 var has_disgrace: bool = false
 var can_use_disgrace: bool = false
 var equiped_disgrace: Disgrace
+#endregion
+
+var state : String = "normal"
+var current_state : String = "normal"
+
+#region state var
+var state_rules: Dictionary = {
+	"normal": {
+		"can_move": true,
+		"can_jump": true,
+		"can_use_item": true,
+		"can_be_pushed": true,
+		"animation": "idle"
+	},
+	"on_air": {
+		"can_move": true,
+		"can_jump": false,
+		"can_use_item": true,
+		"can_be_pushed": true,
+		"animation": "jump"
+	},
+	"trapped": {
+		"can_move": false,
+		"can_jump": false,
+		"can_use_item": false,
+		"can_be_pushed": true,
+		"animation": "disgrace"
+	},
+	"knockback": {
+		"can_move": false, 
+		"can_jump": false,
+		"can_use_item": false,
+		"can_be_pushed": false, 
+		"animation": "hurt"
+	},
+	"using_disgrace": {
+		"can_move": false, 
+		"can_jump": false,
+		"can_use_item": false,
+		"can_be_pushed": true,
+		"animation": "disgrace"
+	}
+}
 #endregion
 
 #region Main Control Flow
@@ -75,7 +117,7 @@ func _ready():
 	$AnimatedSprite2D.material = $AnimatedSprite2D.material.duplicate()
 	_apply_character()
 	check_controls()
-	enter_normal_state()
+	change_state("normal")
 	
 func _process(_delta: float) -> void:
 	if pausing_enabled:
@@ -99,6 +141,9 @@ func _apply_character() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	else:
+		if current_state == "on_air":
+			change_state("normal")
 	if !immobile:
 		handle_jumping()
 		handle_movement()
@@ -128,23 +173,31 @@ func check_controls() -> void:
 	#if !InputMap.has_action(controls.SPRINT):
 		#push_error("No control mapped for sprint. Please add an input map control. Disabling sprinting.")
 		#sprint_enabled = false
-
 #endregion
 
-func enter_normal_state() -> void:
-	#var prev_state = state # anti preempção
-	state = "normal"
-	speed = base_speed
-
-#func handle_state(moving: bool) -> void:
-	#pass
+func change_state(new_state: String) -> void:
+	if not state_rules.has(new_state):
+		push_error("Attempted to use a state that does not exist: ", new_state)
+		return
+		
+	current_state = new_state
+	var rules = state_rules[current_state]
+	
+	immobile = !rules["can_move"]
+	
+	# play_movement_animation(rules["animation"])
 
 func handle_jumping() -> void:
-	if jumping_enabled:
+	var rules = state_rules[current_state]
+	if jumping_enabled and rules["can_jump"]:
+		if Input.is_action_pressed(controls.get("DOWN")) and Input.is_action_just_pressed(controls.get("JUMP")) and is_on_floor():
+			position.y += 2.0 
+			change_state("on_air")
+			return
 		if Input.is_action_just_pressed(controls.get("JUMP")) and is_on_floor():
 			velocity.y = jump_velocity
-			state = "on_air"
-			play_movement_animation("jump")
+			change_state("on_air")
+			play_movement_animation("jump") # todo: colocar no change state?
 
 func handle_movement() -> void:
 	if Input.is_action_pressed(controls.get("LEFT")):
@@ -176,23 +229,27 @@ func handle_pausing() -> void:
 	pass
 	
 func handle_input() -> void:
+	var rules = state_rules[current_state]
+	if current_state == "trapped" or current_state == "knockback":
+		return
 	if Input.is_action_just_pressed(controls.get("USE")):
+		if !rules["can_use_item"]:
+			return
 		if has_disgrace:
+			change_state("using_disgrace")
 			handle_disgrace_animation()
 			await get_tree().create_timer(equiped_disgrace.activation_time ).timeout
 			equiped_disgrace.use()
 			
 func handle_disgrace_animation() -> void:
-	# Todo: melhorar a forma de lidar com ele estar imóvel?
 	var animation_name: String = equiped_disgrace.animation_name
 	print("nome da animação: ", animation_name)
 	if DISGRACE_ANIMATION.sprite_frames.has_animation(animation_name):
-		immobile = true
+		change_state("using_disgrace")
 		velocity.x = 0
 		DISGRACE_ANIMATION.play(animation_name, 1.5)
 		await DISGRACE_ANIMATION.animation_finished
-		immobile = false
-
+		change_state("normal")
 
 func equip(disgrace: Disgrace) -> void:
 	disgrace.reparent.call_deferred(self, false)
@@ -206,8 +263,25 @@ func unequip() -> void:
 	
 func handle_disgrace_event(disgrace: Disgrace):
 	if DISGRACE_ANIMATION.sprite_frames.has_animation(disgrace.animation_name):
-		immobile = true
+		change_state("trapped")
 		velocity.x = 0
 		DISGRACE_ANIMATION.play(disgrace.animation_name)
 		await get_tree().create_timer(disgrace.activation_time ).timeout
-		immobile = false	
+		change_state("normal")
+		
+func knockback(posicao_x_do_atacante: float) -> void:
+	var rules = state_rules[current_state]
+	if !rules["can_be_pushed"]:
+		return
+	change_state("knockback")
+	var direcao = 1
+	if posicao_x_do_atacante > global_position.x:
+		direcao = -1 
+		
+	velocity.x = direcao * 400.0
+	velocity.y = jump_velocity * 0.8
+	
+	# DISGRACE_ANIMATION.play("hurt")
+	
+	await get_tree().create_timer(0.5).timeout
+	change_state("normal")

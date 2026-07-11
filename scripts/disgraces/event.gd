@@ -17,14 +17,19 @@ func _process(delta: float) -> void:
 		self.queue_free()
 		
 func _on_trigger_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("players"):
-		if !current_player and !body.equiped_disgrace:
+	if body is PlayerController and body.is_in_group("players"):
+		if !current_player and !body.has_disgrace:
+			print("oi")
 			_handle_use(body)
-		if current_player and !body.equiped_disgrace:
+		elif current_player and body != current_player:
 			_handle_dispute(body)
 		
-func _handle_dispute(body: PlayerController) -> void:
-	pass
+func _handle_dispute(atacker: PlayerController) -> void:
+	if atacker.has_disgrace:
+		return 
+	var victm = current_player
+	victm.knockback(atacker.global_position.x)
+	_handle_use(atacker)
 
 func _handle_use(body: PlayerController) -> void:
 	current_player = body
@@ -36,5 +41,6 @@ func _handle_depleted() -> void:
 	is_active = false
 	print("acabou evento")
 	if current_player:
+		current_player.change_state("normal") 
 		current_player = null
 	queue_free()
