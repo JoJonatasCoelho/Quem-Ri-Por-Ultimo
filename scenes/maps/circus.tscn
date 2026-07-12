@@ -32,8 +32,8 @@ a = Vector2(34, 10)
 b = Vector2(7, 10)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_76i8t"]
-a = Vector2(60, -30)
-b = Vector2(1, 23)
+a = Vector2(61, -30)
+b = Vector2(0, 30)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ahyvy"]
 a = Vector2(22, 28)
@@ -70,19 +70,25 @@ position = Vector2(62, 265)
 position = Vector2(586, 263)
 
 [node name="DisgraceSpawnManager" parent="." unique_id=1483991931 node_paths=PackedStringArray("map_spawnpoints") instance=ExtResource("3_daek5")]
-map_spawnpoints = [NodePath("../DisgracesSpawnPoints/Spawn1"), NodePath("../DisgracesSpawnPoints/Spawn2"), NodePath("../DisgracesSpawnPoints/Spawn3")]
-max_disgraces = 3
+map_spawnpoints = [NodePath("../DisgracesSpawnPoints/Spawn1"), NodePath("../DisgracesSpawnPoints/Spawn2"), NodePath("../DisgracesSpawnPoints/Spawn3"), NodePath("../DisgracesSpawnPoints/Spawn4"), NodePath("../DisgracesSpawnPoints/Spawn5")]
+max_disgraces = 5
 
 [node name="DisgracesSpawnPoints" type="Node2D" parent="." unique_id=168093940]
 
 [node name="Spawn1" type="Marker2D" parent="DisgracesSpawnPoints" unique_id=1768172062 groups=["big_spawn", "small_spawn"]]
 position = Vector2(128, 111)
 
-[node name="Spawn2" type="Marker2D" parent="DisgracesSpawnPoints" unique_id=219337697 groups=["big_spawn", "small_spawn"]]
-position = Vector2(314, 238)
+[node name="Spawn2" type="Marker2D" parent="DisgracesSpawnPoints" unique_id=219337697 groups=["big_spawn"]]
+position = Vector2(368, 228)
 
 [node name="Spawn3" type="Marker2D" parent="DisgracesSpawnPoints" unique_id=1132999150 groups=["small_spawn"]]
-position = Vector2(414, 135)
+position = Vector2(412, 137)
+
+[node name="Spawn4" type="Marker2D" parent="DisgracesSpawnPoints" unique_id=1171619008 groups=["small_spawn"]]
+position = Vector2(557, 146)
+
+[node name="Spawn5" type="Marker2D" parent="DisgracesSpawnPoints" unique_id=2104840913 groups=["big_spawn"]]
+position = Vector2(200, 228)
 
 [node name="Level Limits" type="Node2D" parent="." unique_id=123536392]
 
@@ -141,7 +147,7 @@ one_way_collision = true
 debug_color = Color(0.6039216, 0.2901961, 0.8666667, 1)
 
 [node name="Plataform7" type="CollisionShape2D" parent="Level Limits/Plataforms" unique_id=1996322552]
-position = Vector2(335, 212)
+position = Vector2(335, 204)
 shape = SubResource("SegmentShape2D_76i8t")
 one_way_collision = true
 debug_color = Color(0.6039216, 0.2901961, 0.8666667, 1)
@@ -164,6 +170,7 @@ shape = SubResource("SegmentShape2D_6snss")
 one_way_collision = true
 
 [node name="Player1" parent="." unique_id=1184130371 groups=["players"] instance=ExtResource("4_3xumh")]
+z_index = 1
 position = Vector2(82, 35)
 player_num = 1
 controls = {
@@ -178,6 +185,7 @@ controls = {
 }
 
 [node name="Player2" parent="." unique_id=432099408 groups=["players"] instance=ExtResource("4_3xumh")]
+z_index = 1
 position = Vector2(138, 37)
 player_num = 2
 controls = {
@@ -192,6 +200,7 @@ controls = {
 }
 
 [node name="RingFire" type="Sprite2D" parent="." unique_id=1614083592]
+z_index = 2
 position = Vector2(557, 190)
 texture = ExtResource("7_33em3")
 
@@ -231,10 +240,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -50.0
-offset_right = 125.0
-offset_bottom = 50.0
+offset_left = -89.0
+offset_top = -38.5
+offset_right = 89.0
+offset_bottom = 38.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("9_ahyvy")

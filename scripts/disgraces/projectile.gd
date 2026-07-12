@@ -20,6 +20,7 @@ func _physics_process(delta: float) -> void:
 		distance_traveled += movement.length()
 		
 		if distance_traveled >= shot_range:
+			prepare_to_free()
 			queue_free()
 
 func _on_collect_area_body_entered(body: Node2D) -> void:
@@ -60,4 +61,5 @@ func handle_contact(collider: Node2D):
 		GlobalSignals.hit_adversary.emit(collider as PlayerController, laugh_value)
 	if collider.is_in_group("boundaries"):
 		GlobalSignals.missed_adversary.emit(shooter as PlayerController, laugh_value)
+	prepare_to_free()
 	queue_free()

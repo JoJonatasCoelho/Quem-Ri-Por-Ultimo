@@ -24,8 +24,8 @@ func _ready() -> void:
 	GlobalSignals.player_reached_max_laugh.connect(finish_match)
 	
 func _process(delta: float) -> void:
-	print("p1 risadas: ", p1_laughs)
-	print("p2 risadas: ", p2_laughs)
+	#print("p1 risadas: ", p1_laughs)
+	#print("p2 risadas: ", p2_laughs)
 	if p1_using_event:
 		p1_laughs += delta
 		battle_ui.increase_laugh_continuous(1, delta)

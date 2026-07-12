@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 	if laugh_available <= 0:
 		laugh_available = 0
 		_handle_depleted()
+		prepare_to_free()
 		self.queue_free()
 		
 func _on_trigger_area_body_entered(body: Node2D) -> void:
@@ -45,4 +46,5 @@ func _handle_depleted() -> void:
 		current_player.change_state("normal") 
 		GlobalSignals.exited_event_disgrace.emit(current_player)
 		current_player = null
+	prepare_to_free()
 	queue_free()
