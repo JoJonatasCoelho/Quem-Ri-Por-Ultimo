@@ -14,7 +14,13 @@ extends Node
 
 func _ready() -> void:
 	laugh_timer.timeout.connect(_on_laugh_timer_timeout)
-	_start_random_timer()
+
+func start_random_laughs() -> void:
+	if laugh_timer.is_stopped():
+		_start_random_timer()
+
+func stop_random_laughs() -> void:
+	laugh_timer.stop()
 
 func _start_random_timer() -> void:
 	var next_time = randf_range(min_laugh_interval, max_laugh_interval)
