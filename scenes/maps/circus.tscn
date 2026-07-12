@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://5vb2id3x2rmx" path="res://assets/placeholders/circus.png" id="1_3xumh"]
 [ext_resource type="Script" uid="uid://dq5ngtwbukg3u" path="res://scripts/core/level.gd" id="1_ccbov"]
+[ext_resource type="PackedScene" uid="uid://k6m7xd2lrs4j" path="res://scenes/disgrace_spawn_manager.tscn" id="3_daek5"]
 [ext_resource type="PackedScene" uid="uid://edsy444m7rf4" path="res://scenes/player.tscn" id="4_3xumh"]
 [ext_resource type="PackedScene" uid="uid://cwbxfq68r4idl" path="res://scenes/gui/battle_ui.tscn" id="4_mvpml"]
-[ext_resource type="PackedScene" uid="uid://beqbyatrhqjeo" path="res://scenes/disgraces/gun.tscn" id="5_mvpml"]
-[ext_resource type="PackedScene" uid="uid://dhf1r8314i177" path="res://scenes/disgraces/tv.tscn" id="6_daek5"]
+[ext_resource type="Texture2D" uid="uid://ckt3mo0dqexr0" path="res://assets/placeholders/circus_ring.png" id="7_33em3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kkyey"]
 
@@ -17,25 +17,31 @@ distance = -126.0
 normal = Vector2(-0.9999741, 0.007194058)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_utigf"]
-a = Vector2(80, 10)
+a = Vector2(60, 10)
+b = Vector2(14, 10)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_daek5"]
-a = Vector2(35, 10)
+a = Vector2(27, 10)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_33em3"]
-a = Vector2(45, 10)
+a = Vector2(34, 10)
+b = Vector2(7, 10)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_76i8t"]
-a = Vector2(67, -33)
-b = Vector2(-8, 29)
+a = Vector2(60, -30)
+b = Vector2(1, 23)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ahyvy"]
-a = Vector2(28, 30)
-b = Vector2(-8, 29)
+a = Vector2(22, 28)
+b = Vector2(2, 29)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ec7s4"]
-a = Vector2(32, 26)
-b = Vector2(-8, 29)
+a = Vector2(23, 26)
+b = Vector2(3, 28)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_6snss"]
+a = Vector2(32, 10)
+b = Vector2(-5, 10)
 
 [node name="Circus" type="Node2D" unique_id=1422189708 node_paths=PackedStringArray("players_positions")]
 script = ExtResource("1_ccbov")
@@ -52,10 +58,20 @@ position = Vector2(62, 265)
 [node name="Player2Spawn" type="Marker2D" parent="." unique_id=273188991]
 position = Vector2(586, 263)
 
-[node name="SoccerGame" parent="." unique_id=785939516 instance=ExtResource("6_daek5")]
-position = Vector2(128, 112)
-laugh_available = 10.0
-activation_time = 10.0
+[node name="DisgraceSpawnManager" parent="." unique_id=1483991931 node_paths=PackedStringArray("map_spawnpoints") instance=ExtResource("3_daek5")]
+map_spawnpoints = [NodePath("../DisgracesSpawnPoints/Spawn1"), NodePath("../DisgracesSpawnPoints/Spawn2"), NodePath("../DisgracesSpawnPoints/Spawn3")]
+max_disgraces = 3
+
+[node name="DisgracesSpawnPoints" type="Node2D" parent="." unique_id=168093940]
+
+[node name="Spawn1" type="Marker2D" parent="DisgracesSpawnPoints" unique_id=1768172062 groups=["big_spawn", "small_spawn"]]
+position = Vector2(128, 111)
+
+[node name="Spawn2" type="Marker2D" parent="DisgracesSpawnPoints" unique_id=219337697 groups=["big_spawn", "small_spawn"]]
+position = Vector2(314, 238)
+
+[node name="Spawn3" type="Marker2D" parent="DisgracesSpawnPoints" unique_id=1132999150 groups=["small_spawn"]]
+position = Vector2(414, 135)
 
 [node name="Level Limits" type="Node2D" parent="." unique_id=123536392]
 
@@ -130,6 +146,11 @@ shape = SubResource("SegmentShape2D_ec7s4")
 one_way_collision = true
 debug_color = Color(0.6039216, 0.2901961, 0.8666667, 1)
 
+[node name="Platform10" type="CollisionShape2D" parent="Level Limits/Plataforms" unique_id=2034418718]
+position = Vector2(431, 223)
+shape = SubResource("SegmentShape2D_6snss")
+one_way_collision = true
+
 [node name="Player1" parent="." unique_id=1184130371 groups=["players"] instance=ExtResource("4_3xumh")]
 position = Vector2(82, 35)
 player_num = 1
@@ -164,6 +185,6 @@ offset_top = 20.0
 offset_right = 15.0
 offset_bottom = 20.0
 
-[node name="Gun" parent="." unique_id=1815693898 instance=ExtResource("5_mvpml")]
-position = Vector2(314, 242)
-animation_name = "shot"
+[node name="RingFire" type="Sprite2D" parent="." unique_id=1614083592]
+position = Vector2(557, 190)
+texture = ExtResource("7_33em3")
