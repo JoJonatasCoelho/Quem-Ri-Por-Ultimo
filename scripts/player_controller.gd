@@ -106,7 +106,14 @@ var state_rules: Dictionary = {
 		"can_use_item": false,
 		"can_be_pushed": true,
 		"animation": "disgrace"
-	}
+	},
+	"game_over": {
+		"can_move": false, 
+		"can_jump": false,
+		"can_use_item": false,
+		"can_be_pushed": false, 
+		"animation": "celebrate"
+	},
 }
 #endregion
 
@@ -114,6 +121,7 @@ var state_rules: Dictionary = {
 
 func _ready():
 	#initialize_animations()
+	GlobalSignals.player_reached_max_laugh.connect(end_match)
 	$AnimatedSprite2D.material = $AnimatedSprite2D.material.duplicate()
 	_apply_character()
 	check_controls()
@@ -249,7 +257,8 @@ func handle_disgrace_animation() -> void:
 		velocity.x = 0
 		DISGRACE_ANIMATION.play(animation_name, 1.5)
 		await DISGRACE_ANIMATION.animation_finished
-		change_state("normal")
+		if current_state != "game_over":
+			change_state("normal")
 
 func equip(disgrace: Disgrace) -> void:
 	disgrace.reparent.call_deferred(self, false)
@@ -267,7 +276,8 @@ func handle_disgrace_event(disgrace: Disgrace):
 		velocity.x = 0
 		DISGRACE_ANIMATION.play(disgrace.animation_name)
 		await get_tree().create_timer(disgrace.activation_time ).timeout
-		change_state("normal")
+		if current_state != "game_over":
+			change_state("normal")
 		
 func knockback(posicao_x_do_atacante: float) -> void:
 	var rules = state_rules[current_state]
@@ -285,3 +295,13 @@ func knockback(posicao_x_do_atacante: float) -> void:
 	
 	await get_tree().create_timer(0.5).timeout
 	change_state("normal")
+
+func end_match(winner_idx: int):
+	change_state("game_over")
+	velocity = Vector2.ZERO 
+	if winner_idx == self.player_num:
+		print("Eu ganhei!")
+		#IDLE_ANIMATION.play("victory")
+	else:
+		print("Eu perdi...")
+		#IDLE_ANIMATION.play("defeat")

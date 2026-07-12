@@ -7,7 +7,7 @@ extends Control
 }
 
 func _ready() -> void:
-	pass
+	MusicManager.update_music("menu_music")
 	
 
 func _on_multiplayer_pressed() -> void:
