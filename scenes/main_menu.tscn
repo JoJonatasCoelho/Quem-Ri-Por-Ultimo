@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://clpkt0dmjc81x" path="res://scripts/core/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://bg70qhek574by" path="res://assets/placeholders/menu.png" id="2_wu84c"]
 [ext_resource type="Texture2D" uid="uid://do5y1vuyv15fj" path="res://assets/placeholders/menubuttonsbg.png" id="3_oa1go"]
-[ext_resource type="Texture2D" uid="uid://dmlaq6fxbu5r2" path="res://assets/placeholders/1player.png" id="3_rtw2f"]
-[ext_resource type="Texture2D" uid="uid://cweegm2kqjmg1" path="res://assets/placeholders/2player.png" id="4_oa1go"]
-[ext_resource type="Texture2D" uid="uid://b0ry7o0naykkn" path="res://assets/placeholders/1player_selected.png" id="5_lgwnu"]
+[ext_resource type="Texture2D" uid="uid://dedqsaqeousab" path="res://assets/placeholders/play.png" id="4_flqon"]
+[ext_resource type="Texture2D" uid="uid://do5r5whw7t14w" path="res://assets/placeholders/play_selected.png" id="5_rcqid"]
 [ext_resource type="Texture2D" uid="uid://b30lhx1ok3db2" path="res://assets/placeholders/config.png" id="5_tbmy8"]
 [ext_resource type="Texture2D" uid="uid://bfhmuch5dr1ie" path="res://assets/placeholders/exit.png" id="6_jk1qb"]
-[ext_resource type="Texture2D" uid="uid://dmhnvkfmoajyf" path="res://assets/placeholders/2player_selected.png" id="7_flqon"]
+[ext_resource type="Texture2D" uid="uid://br8iir508ewyf" path="res://assets/placeholders/credits.png" id="8_flqon"]
+[ext_resource type="Texture2D" uid="uid://cmsdqxmhkyldw" path="res://assets/placeholders/credits_selected.png" id="9_1ajci"]
 [ext_resource type="Texture2D" uid="uid://buke2mqn1aygu" path="res://assets/placeholders/config_selected.png" id="9_rcqid"]
 [ext_resource type="Texture2D" uid="uid://bjorgykckgkc5" path="res://assets/placeholders/exit_selected.png" id="11_1ajci"]
 [ext_resource type="Texture2D" uid="uid://bfiyhr1jhg77k" path="res://assets/animations/GameTitle.png" id="12_flqon"]
@@ -147,25 +147,25 @@ offset_left = 7.0
 offset_top = 6.0
 offset_right = 155.0
 offset_bottom = 202.0
-theme_override_constants/separation = 14
+theme_override_constants/separation = 8
 
-[node name="Singleplayer" type="TextureButton" parent="ButtonsPanel/MenuButtons" unique_id=1802126510]
+[node name="Play" type="TextureButton" parent="ButtonsPanel/MenuButtons" unique_id=1546228224]
 layout_mode = 2
-texture_normal = ExtResource("3_rtw2f")
-texture_pressed = ExtResource("5_lgwnu")
-texture_hover = ExtResource("5_lgwnu")
-
-[node name="Multiplayer" type="TextureButton" parent="ButtonsPanel/MenuButtons" unique_id=1546228224]
-layout_mode = 2
-texture_normal = ExtResource("4_oa1go")
-texture_pressed = ExtResource("7_flqon")
-texture_hover = ExtResource("7_flqon")
+texture_normal = ExtResource("4_flqon")
+texture_pressed = ExtResource("5_rcqid")
+texture_hover = ExtResource("5_rcqid")
 
 [node name="Configuration" type="TextureButton" parent="ButtonsPanel/MenuButtons" unique_id=1186435534]
 layout_mode = 2
 texture_normal = ExtResource("5_tbmy8")
 texture_pressed = ExtResource("9_rcqid")
 texture_hover = ExtResource("9_rcqid")
+
+[node name="Credits" type="TextureButton" parent="ButtonsPanel/MenuButtons" unique_id=1802126510]
+layout_mode = 2
+texture_normal = ExtResource("8_flqon")
+texture_pressed = ExtResource("9_1ajci")
+texture_hover = ExtResource("9_1ajci")
 
 [node name="Sair" type="TextureButton" parent="ButtonsPanel/MenuButtons" unique_id=735516238]
 layout_mode = 2
@@ -179,7 +179,7 @@ sprite_frames = SubResource("SpriteFrames_6snss")
 autoplay = "default"
 frame_progress = 0.85706955
 
-[connection signal="pressed" from="ButtonsPanel/MenuButtons/Singleplayer" to="." method="_on_singleplayer_pressed"]
-[connection signal="pressed" from="ButtonsPanel/MenuButtons/Multiplayer" to="." method="_on_multiplayer_pressed"]
+[connection signal="pressed" from="ButtonsPanel/MenuButtons/Play" to="." method="_on_multiplayer_pressed"]
 [connection signal="pressed" from="ButtonsPanel/MenuButtons/Configuration" to="." method="_on_configuration_pressed"]
+[connection signal="pressed" from="ButtonsPanel/MenuButtons/Credits" to="." method="_on_singleplayer_pressed"]
 [connection signal="pressed" from="ButtonsPanel/MenuButtons/Sair" to="." method="_on_sair_pressed"]
