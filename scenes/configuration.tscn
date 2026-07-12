@@ -46,9 +46,32 @@ text = "Volume"
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-min_value = -60.0
-max_value = 0.0
-value = -20.0
+max_value = 1.0
+step = 0.01
+
+[node name="MusicVolume" type="Label" parent="MarginContainer/Panel/VBoxContainer" unique_id=612186101]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Music volume"
+
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/Panel/VBoxContainer" unique_id=466607781]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+max_value = 1.0
+step = 0.01
+
+[node name="SfxVolume" type="Label" parent="MarginContainer/Panel/VBoxContainer" unique_id=1873792975]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Music volume"
+
+[node name="SfxSlider" type="HSlider" parent="MarginContainer/Panel/VBoxContainer" unique_id=1686729114]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+max_value = 1.0
+step = 0.01
 
 [node name="Mute" type="CheckBox" parent="MarginContainer/Panel/VBoxContainer" unique_id=454621237]
 layout_mode = 2
@@ -87,6 +110,8 @@ texture_disabled = ExtResource("3_sb302")
 texture_focused = ExtResource("3_sb302")
 
 [connection signal="value_changed" from="MarginContainer/Panel/VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Panel/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Panel/VBoxContainer/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="toggled" from="MarginContainer/Panel/VBoxContainer/Mute" to="." method="_on_mute_toggled"]
 [connection signal="item_selected" from="MarginContainer/Panel/VBoxContainer/ResolutionOptionButton" to="." method="_on_resolution_option_button_item_selected"]
 [connection signal="toggled" from="MarginContainer/Panel/VBoxContainer/Fullscreen" to="." method="_on_fullscreen_toggled"]

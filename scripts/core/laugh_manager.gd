@@ -75,4 +75,5 @@ func finish_match(winner_idx: int):
 
 
 func _on_menu_pressed() -> void:
-		get_tree().change_scene_to_file(menu_scene)
+	SfxManager.toggle_random_laugh()
+	get_tree().change_scene_to_file(menu_scene)

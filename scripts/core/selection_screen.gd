@@ -75,6 +75,7 @@ func _process(_delta: float) -> void:
 				p1_cursor.texture = load("res://assets/placeholders/p1_cursor.png")
 				player1_panel.texture = load("res://assets/placeholders/frame.png")
 			if Input.is_action_just_pressed("p1_interact"):
+				SfxManager.play_sound("p1_select_skin")
 				p1_leftbutton.disabled = true
 				p1_leftbutton.hide()
 				p1_rightbutton.disabled = true
@@ -96,6 +97,7 @@ func _process(_delta: float) -> void:
 				p2_cursor.texture = load("res://assets/placeholders/p2_cursor.png")
 				player2_panel.texture = load("res://assets/placeholders/frame.png")
 			if Input.is_action_just_pressed("p2_interact"):
+				SfxManager.play_sound("p2_select_skin")
 				p2_leftbutton.disabled = true
 				p2_leftbutton.hide()
 				p2_rightbutton.disabled = true
@@ -119,6 +121,7 @@ func update_p1_cursor():
 	p1_cursor.global_position = character.global_position
 	
 	if Input.is_action_just_pressed("p1_interact"):
+		SfxManager.play_sound("select_character")
 		p1_cursor.texture = load("res://assets/placeholders/p1_cursor_selected.png")
 		GlobalVals.p1_character = p1_cursor_idx
 		p1_state = PlayerState.SELECT_PALETTE
@@ -144,6 +147,7 @@ func update_p2_cursor():
 	p2_cursor.global_position = character.global_position
 	
 	if Input.is_action_just_pressed("p2_interact"):
+		SfxManager.play_sound("select_character")
 		p2_cursor.texture = load("res://assets/placeholders/p2_cursor_selected.png")
 		GlobalVals.p2_character = p2_cursor_idx
 		p2_state = PlayerState.SELECT_PALETTE
@@ -185,10 +189,14 @@ func _cycle_palette_right(player: int) -> void:
 		apply_palette(player2_sprite, GlobalVals.characters[p2_cursor_idx].palettes, current_palette_p2)
 
 func _on_left_p_1_pressed() -> void:
+	SfxManager.play_sound("change_skin")
 	_cycle_palette_left(1)
 func _on_right_p_1_pressed() -> void:
+	SfxManager.play_sound("change_skin")
 	_cycle_palette_right(1)
 func _on_left_p_2_pressed() -> void:
+	SfxManager.play_sound("change_skin")
 	_cycle_palette_left(2)
 func _on_right_p_2_pressed() -> void:
+	SfxManager.play_sound("change_skin")
 	_cycle_palette_right(2)
