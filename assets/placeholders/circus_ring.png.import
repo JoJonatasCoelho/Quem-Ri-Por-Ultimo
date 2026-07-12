@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ehhnpjp8hfxv"
-path="res://.godot/imported/tv_disgrace.png-5cbb57241f51644b2f96ad8b4e253d6a.ctex"
+uid="uid://ckt3mo0dqexr0"
+path="res://.godot/imported/circus_ring.png-238aaa354e9357371788429d6887a12a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/animations/digraces/tv_disgrace.png"
-dest_files=["res://.godot/imported/tv_disgrace.png-5cbb57241f51644b2f96ad8b4e253d6a.ctex"]
+source_file="res://assets/placeholders/circus_ring.png"
+dest_files=["res://.godot/imported/circus_ring.png-238aaa354e9357371788429d6887a12a.ctex"]
 
 [params]
 

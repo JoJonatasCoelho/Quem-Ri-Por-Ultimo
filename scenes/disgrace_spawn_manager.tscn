@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://k6m7xd2lrs4j"]
+
+[ext_resource type="Script" uid="uid://cg2ejf208qyef" path="res://scripts/core/disgrace_spawn_manager.gd" id="1_mqw4m"]
+[ext_resource type="PackedScene" uid="uid://dhf1r8314i177" path="res://scenes/disgraces/tv.tscn" id="2_ugw4g"]
+[ext_resource type="PackedScene" uid="uid://beqbyatrhqjeo" path="res://scenes/disgraces/gun.tscn" id="3_hmgpe"]
+
+[node name="DisgraceSpawnManager" type="Node2D" unique_id=1483991931 node_paths=PackedStringArray("map_spawnpoints")]
+script = ExtResource("1_mqw4m")
+map_spawnpoints = [null, null]
+max_disgraces = 2
+disgraces = Array[PackedScene]([ExtResource("2_ugw4g"), ExtResource("3_hmgpe")])
+
+[node name="IncreaseMaxCooldown" type="Timer" parent="." unique_id=94781061]
+one_shot = true
+
+[node name="RespawnCooldown" type="Timer" parent="." unique_id=675995215]
+one_shot = true

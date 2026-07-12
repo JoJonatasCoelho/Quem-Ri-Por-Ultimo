@@ -64,10 +64,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkyey"]
 size = Vector2(12, 8)
 
-[node name="Gun" type="Node2D" unique_id=1815693898 node_paths=PackedStringArray("projectile_sprite")]
+[node name="Gun" type="Node2D" unique_id=1815693898 node_paths=PackedStringArray("projectile_sprite") groups=["small_spawn"]]
 script = ExtResource("1_76gfg")
 projectile_sprite = NodePath("BulletSprite")
 disgrace_name = "Gun"
+animation_name = "shot"
 activation_time = 1.5
 
 [node name="GunSprite" type="AnimatedSprite2D" parent="." unique_id=1457599044]

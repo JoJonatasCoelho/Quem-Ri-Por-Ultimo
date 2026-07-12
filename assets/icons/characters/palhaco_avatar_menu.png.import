@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ehhnpjp8hfxv"
-path="res://.godot/imported/tv_disgrace.png-5cbb57241f51644b2f96ad8b4e253d6a.ctex"
+uid="uid://b1fvaqpbepaow"
+path="res://.godot/imported/palhaco_avatar_menu.png-b069baa2eb341d1d4aa5ba3e742915db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/animations/digraces/tv_disgrace.png"
-dest_files=["res://.godot/imported/tv_disgrace.png-5cbb57241f51644b2f96ad8b4e253d6a.ctex"]
+source_file="res://assets/icons/characters/palhaco_avatar_menu.png"
+dest_files=["res://.godot/imported/palhaco_avatar_menu.png-b069baa2eb341d1d4aa5ba3e742915db.ctex"]
 
 [params]
 
