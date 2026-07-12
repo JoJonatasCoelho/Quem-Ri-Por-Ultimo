@@ -10,14 +10,20 @@ config_version=5
 
 [application]
 
-config/name="Quem Ri Por Ultimo"
+config/name="Who Laughs Best"
 run/main_scene="uid://ya4452pypnur"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://bvph8cl5ecf3e"
+
 [autoload]
 
 GlobalVals="*uid://co7gkwk3fmuyq"
+GlobalAudio="*uid://gmanbiytcivc"
+SettingsManager="*uid://de7q03ubvcnsw"
 
 [display]
 

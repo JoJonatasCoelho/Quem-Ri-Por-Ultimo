@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://ya4452pypnur"]
 
 [ext_resource type="Script" uid="uid://clpkt0dmjc81x" path="res://scripts/core/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Script" uid="uid://2bsbcm0mif4s" path="res://scripts/core/audio_manager.gd" id="2_1ajci"]
 [ext_resource type="Texture2D" uid="uid://bg70qhek574by" path="res://assets/placeholders/menu.png" id="2_wu84c"]
+[ext_resource type="AudioStream" uid="uid://dd4jqnb3gnvjh" path="res://assets/audio/musics/trilha_menu_goofy_sounds.wav" id="3_1ajci"]
 [ext_resource type="Texture2D" uid="uid://do5y1vuyv15fj" path="res://assets/placeholders/menubuttonsbg.png" id="3_oa1go"]
 [ext_resource type="Texture2D" uid="uid://dmlaq6fxbu5r2" path="res://assets/placeholders/1player.png" id="3_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://cweegm2kqjmg1" path="res://assets/placeholders/2player.png" id="4_oa1go"]
@@ -121,13 +123,22 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ekxnf")
 
+[node name="AudioManager" type="Node" parent="." unique_id=1572220967]
+script = ExtResource("2_1ajci")
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="AudioManager" unique_id=593441413]
+stream = ExtResource("3_1ajci")
+volume_db = -20.0
+autoplay = true
+bus = &"music"
+
 [node name="Background" type="TextureRect" parent="." unique_id=404822767]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
 texture = ExtResource("2_wu84c")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=159568008]
+[node name="ButtonsPanel" type="TextureRect" parent="." unique_id=159568008]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.052
@@ -141,7 +152,7 @@ offset_bottom = 103.999985
 grow_vertical = 2
 texture = ExtResource("3_oa1go")
 
-[node name="MenuButtons" type="VBoxContainer" parent="TextureRect" unique_id=1157812971]
+[node name="MenuButtons" type="VBoxContainer" parent="ButtonsPanel" unique_id=1157812971]
 layout_mode = 1
 offset_left = 7.0
 offset_top = 6.0
@@ -149,37 +160,37 @@ offset_right = 155.0
 offset_bottom = 202.0
 theme_override_constants/separation = 14
 
-[node name="Singleplayer" type="TextureButton" parent="TextureRect/MenuButtons" unique_id=1802126510]
+[node name="Singleplayer" type="TextureButton" parent="ButtonsPanel/MenuButtons" unique_id=1802126510]
 layout_mode = 2
 texture_normal = ExtResource("3_rtw2f")
 texture_pressed = ExtResource("5_lgwnu")
 texture_hover = ExtResource("5_lgwnu")
 
-[node name="Multiplayer" type="TextureButton" parent="TextureRect/MenuButtons" unique_id=1546228224]
+[node name="Multiplayer" type="TextureButton" parent="ButtonsPanel/MenuButtons" unique_id=1546228224]
 layout_mode = 2
 texture_normal = ExtResource("4_oa1go")
 texture_pressed = ExtResource("7_flqon")
 texture_hover = ExtResource("7_flqon")
 
-[node name="Configuration" type="TextureButton" parent="TextureRect/MenuButtons" unique_id=1186435534]
+[node name="Configuration" type="TextureButton" parent="ButtonsPanel/MenuButtons" unique_id=1186435534]
 layout_mode = 2
 texture_normal = ExtResource("5_tbmy8")
 texture_pressed = ExtResource("9_rcqid")
 texture_hover = ExtResource("9_rcqid")
 
-[node name="Sair" type="TextureButton" parent="TextureRect/MenuButtons" unique_id=735516238]
+[node name="Sair" type="TextureButton" parent="ButtonsPanel/MenuButtons" unique_id=735516238]
 layout_mode = 2
 texture_normal = ExtResource("6_jk1qb")
 texture_pressed = ExtResource("11_1ajci")
 texture_hover = ExtResource("11_1ajci")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=534407113]
+[node name="GameTitle" type="AnimatedSprite2D" parent="." unique_id=534407113]
 position = Vector2(127, 67)
 sprite_frames = SubResource("SpriteFrames_6snss")
 autoplay = "default"
 frame_progress = 0.85706955
 
-[connection signal="pressed" from="TextureRect/MenuButtons/Singleplayer" to="." method="_on_singleplayer_pressed"]
-[connection signal="pressed" from="TextureRect/MenuButtons/Multiplayer" to="." method="_on_multiplayer_pressed"]
-[connection signal="pressed" from="TextureRect/MenuButtons/Configuration" to="." method="_on_configuration_pressed"]
-[connection signal="pressed" from="TextureRect/MenuButtons/Sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="ButtonsPanel/MenuButtons/Singleplayer" to="." method="_on_singleplayer_pressed"]
+[connection signal="pressed" from="ButtonsPanel/MenuButtons/Multiplayer" to="." method="_on_multiplayer_pressed"]
+[connection signal="pressed" from="ButtonsPanel/MenuButtons/Configuration" to="." method="_on_configuration_pressed"]
+[connection signal="pressed" from="ButtonsPanel/MenuButtons/Sair" to="." method="_on_sair_pressed"]
