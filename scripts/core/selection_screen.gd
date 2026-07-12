@@ -39,6 +39,7 @@ var current_palette_p1 := 0
 var current_palette_p2 := 0
 
 func _ready():
+	MusicManager.update_music("selection_music")
 	p1_leftbutton.hide()
 	p1_rightbutton.hide()
 	p2_leftbutton.hide()

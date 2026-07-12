@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://ya4452pypnur"]
 
 [ext_resource type="Script" uid="uid://clpkt0dmjc81x" path="res://scripts/core/main_menu.gd" id="1_ekxnf"]
-[ext_resource type="Script" uid="uid://2bsbcm0mif4s" path="res://scripts/core/audio_manager.gd" id="2_1ajci"]
 [ext_resource type="Texture2D" uid="uid://bg70qhek574by" path="res://assets/placeholders/menu.png" id="2_wu84c"]
-[ext_resource type="AudioStream" uid="uid://dd4jqnb3gnvjh" path="res://assets/audio/musics/trilha_menu_goofy_sounds.wav" id="3_1ajci"]
 [ext_resource type="Texture2D" uid="uid://do5y1vuyv15fj" path="res://assets/placeholders/menubuttonsbg.png" id="3_oa1go"]
 [ext_resource type="Texture2D" uid="uid://dmlaq6fxbu5r2" path="res://assets/placeholders/1player.png" id="3_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://cweegm2kqjmg1" path="res://assets/placeholders/2player.png" id="4_oa1go"]
@@ -122,15 +120,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ekxnf")
-
-[node name="AudioManager" type="Node" parent="." unique_id=1572220967]
-script = ExtResource("2_1ajci")
-
-[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="AudioManager" unique_id=593441413]
-stream = ExtResource("3_1ajci")
-volume_db = -20.0
-autoplay = true
-bus = &"music"
 
 [node name="Background" type="TextureRect" parent="." unique_id=404822767]
 layout_mode = 0

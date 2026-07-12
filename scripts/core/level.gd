@@ -3,6 +3,7 @@ extends Node2D
 @export var players_positions: Array[Marker2D]
 
 func _ready() -> void:
+	MusicManager.update_music("battle_music")
 	initialize_players()
 
 

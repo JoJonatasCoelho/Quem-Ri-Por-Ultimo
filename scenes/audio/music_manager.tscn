@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://crdkgeur4ndbt"]
+
+[ext_resource type="AudioStream" uid="uid://dd4jqnb3gnvjh" path="res://assets/audio/musics/trilha_menu_goofy_sounds.wav" id="1_p7jqn"]
+[ext_resource type="AudioStream" uid="uid://7lwcuyicp7xy" path="res://assets/audio/musics/seleção_de_personagem_trilha.wav" id="2_anhs0"]
+[ext_resource type="Script" uid="uid://g6pbsukv3awd" path="res://scripts/core/music_manager.gd" id="2_lycc5"]
+[ext_resource type="AudioStream" uid="uid://df38wrk70kk3l" path="res://assets/audio/musics/combate-trilha-sonora.wav" id="3_exxem"]
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_bj7wg"]
+clip_count = 3
+clip_0/name = &"menu_music"
+clip_0/stream = ExtResource("1_p7jqn")
+clip_0/auto_advance = 0
+clip_1/name = &"selection_music"
+clip_1/stream = ExtResource("2_anhs0")
+clip_1/auto_advance = 0
+clip_2/name = &"battle_music"
+clip_2/stream = ExtResource("3_exxem")
+clip_2/auto_advance = 0
+_transitions = {
+Vector2i(1, 2): {
+"fade_beats": 1.0,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 1
+},
+Vector2i(2, 1): {
+"fade_beats": 1.0,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 1
+}
+}
+
+[node name="MusicManager" type="AudioStreamPlayer" unique_id=867738505]
+stream = SubResource("AudioStreamInteractive_bj7wg")
+volume_db = -20.0
+autoplay = true
+bus = &"music"
+script = ExtResource("2_lycc5")
