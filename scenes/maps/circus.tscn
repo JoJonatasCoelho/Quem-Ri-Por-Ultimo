@@ -72,6 +72,7 @@ position = Vector2(586, 263)
 [node name="DisgraceSpawnManager" parent="." unique_id=1483991931 node_paths=PackedStringArray("map_spawnpoints") instance=ExtResource("3_daek5")]
 map_spawnpoints = [NodePath("../DisgracesSpawnPoints/Spawn1"), NodePath("../DisgracesSpawnPoints/Spawn2"), NodePath("../DisgracesSpawnPoints/Spawn3"), NodePath("../DisgracesSpawnPoints/Spawn4"), NodePath("../DisgracesSpawnPoints/Spawn5")]
 max_disgraces = 5
+disgrace_respawn_cooldown = 5.0
 
 [node name="DisgracesSpawnPoints" type="Node2D" parent="." unique_id=168093940]
 
