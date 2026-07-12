@@ -40,9 +40,9 @@ window/stretch/aspect="expand"
 [global_group]
 
 players=""
+boundaries=""
 big_spawn="big spawn point (item and marker group)"
 small_spawn="big spawn point (item and marker group)"
-boundaries=""
 
 [input]
 
