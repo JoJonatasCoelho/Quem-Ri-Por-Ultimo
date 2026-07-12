@@ -3,6 +3,7 @@ extends Disgrace
 @export var projectile_speed: float = 400.0 
 @export var shot_range : float = 500.0 
 @export var projectile_sprite: Sprite2D
+@export var laugh_value: int = 10
 
 var is_fired: bool = false
 var direction: Vector2 = Vector2.ZERO
@@ -55,8 +56,8 @@ func use() -> void:
 func handle_contact(collider: Node2D):
 	if collider == shooter:
 		return
-		
-	print("sucessow?")
 	if collider.is_in_group("players"):
-		print("É sucessow")
+		GlobalSignals.hit_adversary.emit(collider as PlayerController, laugh_value)
+	if collider.is_in_group("boundaries"):
+		GlobalSignals.missed_adversary.emit(shooter as PlayerController, laugh_value)
 	queue_free()

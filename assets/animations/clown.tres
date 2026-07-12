@@ -57,69 +57,49 @@ region = Rect2(704, 0, 64, 64)
 atlas = ExtResource("1_pxmvs")
 region = Rect2(768, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ydrlx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxmvs"]
 atlas = ExtResource("2_cyl73")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v21yk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyl73"]
 atlas = ExtResource("2_cyl73")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_adtdp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbgoa"]
 atlas = ExtResource("2_cyl73")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tdo2o"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6x764"]
 atlas = ExtResource("2_cyl73")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w0ev7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydrlx"]
 atlas = ExtResource("2_cyl73")
 region = Rect2(256, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8t0no"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_v21yk"]
 atlas = ExtResource("2_cyl73")
 region = Rect2(320, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6s326"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_adtdp"]
 atlas = ExtResource("2_cyl73")
 region = Rect2(384, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_drq4x"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdo2o"]
 atlas = ExtResource("2_cyl73")
 region = Rect2(448, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aumu4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0ev7"]
 atlas = ExtResource("2_cyl73")
 region = Rect2(512, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c2sxd"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t0no"]
 atlas = ExtResource("2_cyl73")
 region = Rect2(576, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tclah"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s326"]
 atlas = ExtResource("2_cyl73")
 region = Rect2(640, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1nvmh"]
-atlas = ExtResource("2_cyl73")
-region = Rect2(704, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_31nrg"]
-atlas = ExtResource("2_cyl73")
-region = Rect2(768, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ktc2m"]
-atlas = ExtResource("2_cyl73")
-region = Rect2(832, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rvhey"]
-atlas = ExtResource("2_cyl73")
-region = Rect2(896, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_30cqk"]
-atlas = ExtResource("2_cyl73")
-region = Rect2(960, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7x4fh"]
 atlas = ExtResource("3_bbgoa")
@@ -353,6 +333,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 0.5,
+"texture": SubResource("AtlasTexture_pxmvs")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_cyl73")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_bbgoa")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_6x764")
+}, {
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_ydrlx")
 }, {
 "duration": 0.5,
@@ -372,35 +364,8 @@ animations = [{
 }, {
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_6s326")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_drq4x")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_aumu4")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_c2sxd")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_tclah")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_1nvmh")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_31nrg")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_ktc2m")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_rvhey")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_30cqk")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"jump",
 "speed": 5.0
 }, {

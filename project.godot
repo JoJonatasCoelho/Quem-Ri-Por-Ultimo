@@ -24,6 +24,7 @@ buses/default_bus_layout="uid://bvph8cl5ecf3e"
 GlobalVals="*uid://co7gkwk3fmuyq"
 SettingsManager="*uid://de7q03ubvcnsw"
 MusicManager="*uid://crdkgeur4ndbt"
+GlobalSignals="*uid://8qglnh76uc0x"
 
 [display]
 
@@ -39,6 +40,7 @@ window/stretch/aspect="expand"
 players=""
 big_spawn="big spawn point (item and marker group)"
 small_spawn="big spawn point (item and marker group)"
+boundaries=""
 
 [input]
 

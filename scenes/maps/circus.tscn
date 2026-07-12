@@ -2,10 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://5vb2id3x2rmx" path="res://assets/placeholders/circus.png" id="1_3xumh"]
 [ext_resource type="Script" uid="uid://dq5ngtwbukg3u" path="res://scripts/core/level.gd" id="1_ccbov"]
+[ext_resource type="Script" uid="uid://cuvb0lb8pxm5f" path="res://scripts/core/laugh_manager.gd" id="2_33em3"]
 [ext_resource type="PackedScene" uid="uid://k6m7xd2lrs4j" path="res://scenes/disgrace_spawn_manager.tscn" id="3_daek5"]
 [ext_resource type="PackedScene" uid="uid://edsy444m7rf4" path="res://scenes/player.tscn" id="4_3xumh"]
+[ext_resource type="Texture2D" uid="uid://dmmv7wsnkhlpp" path="res://assets/placeholders/player2_name.png" id="4_ec7s4"]
 [ext_resource type="PackedScene" uid="uid://cwbxfq68r4idl" path="res://scenes/gui/battle_ui.tscn" id="4_mvpml"]
 [ext_resource type="Texture2D" uid="uid://ckt3mo0dqexr0" path="res://assets/placeholders/circus_ring.png" id="7_33em3"]
+[ext_resource type="Texture2D" uid="uid://b3dcp4vc3gm78" path="res://assets/placeholders/player1_name.png" id="8_76i8t"]
+[ext_resource type="Texture2D" uid="uid://dsgcj6p22cap7" path="res://assets/placeholders/wins.png" id="9_ahyvy"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kkyey"]
 
@@ -47,6 +51,13 @@ b = Vector2(-5, 10)
 script = ExtResource("1_ccbov")
 players_positions = [NodePath("Player1Spawn"), NodePath("Player2Spawn")]
 
+[node name="LaughManager" type="Node" parent="." unique_id=513534197 node_paths=PackedStringArray("battle_ui", "win_context")]
+script = ExtResource("2_33em3")
+battle_ui = NodePath("../CanvasLayer/BattleUi")
+win_context = NodePath("../CanvasLayer/WinContext")
+player1_name_texture = ExtResource("8_76i8t")
+player2_name_texture = ExtResource("4_ec7s4")
+
 [node name="BackgroundRect" type="TextureRect" parent="." unique_id=970808448]
 offset_right = 640.0
 offset_bottom = 360.0
@@ -75,8 +86,9 @@ position = Vector2(414, 135)
 
 [node name="Level Limits" type="Node2D" parent="." unique_id=123536392]
 
-[node name="LevelBoundaries" type="StaticBody2D" parent="Level Limits" unique_id=2111412114]
+[node name="LevelBoundaries" type="StaticBody2D" parent="Level Limits" unique_id=2111412114 groups=["boundaries"]]
 position = Vector2(-3, 40)
+collision_layer = 3
 
 [node name="DownBoundary" type="CollisionShape2D" parent="Level Limits/LevelBoundaries" unique_id=360947896]
 position = Vector2(338, 222)
@@ -179,12 +191,70 @@ controls = {
 "USE": "p2_interact"
 }
 
-[node name="Main" parent="." unique_id=1801485757 instance=ExtResource("4_mvpml")]
-offset_left = 15.0
-offset_top = 20.0
-offset_right = 15.0
-offset_bottom = 20.0
-
 [node name="RingFire" type="Sprite2D" parent="." unique_id=1614083592]
 position = Vector2(557, 190)
 texture = ExtResource("7_33em3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=650281196]
+
+[node name="BattleUi" parent="CanvasLayer" unique_id=1801485757 instance=ExtResource("4_mvpml")]
+
+[node name="WinContext" type="Node" parent="CanvasLayer" unique_id=1483049530]
+
+[node name="ShadowScreen" type="Panel" parent="CanvasLayer/WinContext" unique_id=452390779]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerWinner" type="TextureRect" parent="CanvasLayer/WinContext" unique_id=1063823913]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -82.0
+offset_right = 64.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_76i8t")
+
+[node name="WinLabel" type="TextureRect" parent="CanvasLayer/WinContext" unique_id=342522936]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -50.0
+offset_right = 125.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_ahyvy")
+
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayer/WinContext" unique_id=2027796279]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = 51.0
+offset_right = 16.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="Button" parent="CanvasLayer/WinContext/Buttons" unique_id=16270641]
+layout_mode = 2
+text = "Back to menu"
+
+[connection signal="pressed" from="CanvasLayer/WinContext/Buttons/Menu" to="LaughManager" method="_on_menu_pressed"]
