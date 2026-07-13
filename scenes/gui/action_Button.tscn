@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dpgktf5t1xp7t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kkyey"]
+bg_color = Color(0, 0, 0, 0.57254905)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utigf"]
+bg_color = Color(1, 1, 1, 0.6392157)
+
+[node name="ActionButton" type="Button" unique_id=606675073]
+custom_minimum_size = Vector2(0, 18)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_kkyey")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_utigf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_utigf")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1652142604]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=437342552]
+layout_mode = 2
+
+[node name="LabelAction" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1164753836]
+layout_mode = 2
+mouse_filter = 1
+text = "left"
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer" unique_id=2007050230]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="LabelInput" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1086900195]
+layout_mode = 2
+mouse_filter = 1
+text = "Input Key"
+vertical_alignment = 1

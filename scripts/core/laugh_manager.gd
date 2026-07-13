@@ -15,6 +15,7 @@ extends Node
 
 
 func _ready() -> void:
+	SfxManager.start_random_laughs()
 	GlobalSignals.hit_adversary.connect(give_laugh)
 	GlobalSignals.missed_adversary.connect(give_laugh)
 	
@@ -75,4 +76,5 @@ func finish_match(winner_idx: int):
 
 
 func _on_menu_pressed() -> void:
-		get_tree().change_scene_to_file(menu_scene)
+	SfxManager.stop_random_laughs()
+	get_tree().change_scene_to_file(menu_scene)

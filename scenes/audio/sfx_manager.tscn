@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bjixgkqtai4ru"]
+
+[ext_resource type="Script" uid="uid://c3gekwsr3utbs" path="res://scripts/core/sfx_manager.gd" id="1_3ffui"]
+[ext_resource type="AudioStream" uid="uid://blx2mrt5jheqe" path="res://assets/audio/sfx/laughs/1.wav" id="2_nrtiv"]
+[ext_resource type="AudioStream" uid="uid://brgun1mogonvy" path="res://assets/audio/sfx/laughs/2.wav" id="3_yopdx"]
+[ext_resource type="AudioStream" uid="uid://drkb6n113tohb" path="res://assets/audio/sfx/laughs/3.mp3" id="4_4qj5d"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kkyey"]
+playback_mode = 1
+streams_count = 3
+stream_0/stream = ExtResource("2_nrtiv")
+stream_1/stream = ExtResource("3_yopdx")
+stream_2/stream = ExtResource("4_4qj5d")
+
+[node name="SfxManager" type="Node" unique_id=1145601944]
+script = ExtResource("1_3ffui")
+
+[node name="RandomLaughs" type="AudioStreamPlayer" parent="." unique_id=1303966127]
+stream = SubResource("AudioStreamRandomizer_kkyey")
+max_polyphony = 2
+bus = &"Sfx"
+
+[node name="RandomLaughTimer" type="Timer" parent="." unique_id=1955155924]
+wait_time = 2.0

@@ -17,7 +17,8 @@ config/icon="res://icon.svg"
 
 [audio]
 
-buses/default_bus_layout="uid://bvph8cl5ecf3e"
+buses/default_bus_layout="uid://bi5to6mkomwj5"
+buses/channel_disable_time=0.0
 
 [autoload]
 
@@ -25,6 +26,7 @@ GlobalVals="*uid://co7gkwk3fmuyq"
 SettingsManager="*uid://de7q03ubvcnsw"
 MusicManager="*uid://crdkgeur4ndbt"
 GlobalSignals="*uid://8qglnh76uc0x"
+SfxManager="*uid://bjixgkqtai4ru"
 
 [display]
 
@@ -38,9 +40,9 @@ window/stretch/aspect="expand"
 [global_group]
 
 players=""
+boundaries=""
 big_spawn="big spawn point (item and marker group)"
 small_spawn="big spawn point (item and marker group)"
-boundaries=""
 
 [input]
 
