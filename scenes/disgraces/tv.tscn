@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://0p2ac42w7i66" path="res://scripts/disgraces/event.gd" id="1_bm0sd"]
 [ext_resource type="Texture2D" uid="uid://ehhnpjp8hfxv" path="res://assets/animations/digraces/tv_disgrace.png" id="2_pic1v"]
-[ext_resource type="Texture2D" uid="uid://dckm7ogwp865" path="res://assets/animations/digraces/tv_disgrace_in_use.png" id="3_pic1v"]
+[ext_resource type="Texture2D" uid="uid://x7rj3hee8ew8" path="res://assets/animations/digraces/tv_disgrace_in_use.png" id="3_pic1v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t4ial"]
 atlas = ExtResource("2_pic1v")
@@ -309,6 +309,8 @@ frame = 7
 frame_progress = 0.11247503
 
 [node name="TriggerArea" type="Area2D" parent="." unique_id=1329455971]
+collision_layer = 8
+collision_mask = 5
 
 [node name="Collision" type="CollisionShape2D" parent="TriggerArea" unique_id=1790877354]
 position = Vector2(0, 8.5)

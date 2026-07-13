@@ -198,7 +198,7 @@ func change_state(new_state: String) -> void:
 func handle_jumping() -> void:
 	var rules = state_rules[current_state]
 	if jumping_enabled and rules["can_jump"]:
-		if Input.is_action_pressed(controls.get("DOWN")) and Input.is_action_just_pressed(controls.get("JUMP")) and is_on_floor():
+		if Input.is_action_pressed(controls.get("DOWN")) and is_on_floor():
 			position.y += 2.0 
 			change_state("on_air")
 			return

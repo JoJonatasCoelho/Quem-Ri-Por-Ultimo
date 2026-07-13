@@ -14,8 +14,8 @@ shader_parameter/color_count = 7
 animations = []
 
 [node name="Player" type="CharacterBody2D" unique_id=1184130371 node_paths=PackedStringArray("COLLISION", "IDLE_ANIMATION", "WALK_ANIMATION", "JUMP_ANIMATION", "DISGRACE_ANIMATION")]
-collision_layer = 7
-collision_mask = 7
+collision_layer = 4
+collision_mask = 11
 script = ExtResource("1_g2els")
 COLLISION = NodePath("PlayerCollision")
 IDLE_ANIMATION = NodePath("AnimatedSprite2D")

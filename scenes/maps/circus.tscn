@@ -99,7 +99,7 @@ position = Vector2(200, 228)
 
 [node name="LevelBoundaries" type="StaticBody2D" parent="Level Limits" unique_id=2111412114 groups=["boundaries"]]
 position = Vector2(-3, 40)
-collision_layer = 3
+collision_mask = 0
 
 [node name="DownBoundary" type="CollisionShape2D" parent="Level Limits/LevelBoundaries" unique_id=360947896]
 position = Vector2(338, 222)
@@ -114,6 +114,8 @@ position = Vector2(589, 145)
 shape = SubResource("WorldBoundaryShape2D_1g4kx")
 
 [node name="Plataforms" type="StaticBody2D" parent="Level Limits" unique_id=99541557]
+collision_layer = 2
+collision_mask = 0
 
 [node name="Plataform1" type="CollisionShape2D" parent="Level Limits/Plataforms" unique_id=98948165]
 position = Vector2(92, 128)
