@@ -9,6 +9,24 @@ var is_muted: bool = false
 var master_volume: float = 1.0
 var music_volume: float = 1.0
 var sfx_volume: float = 1.0
+var keybind_actions: Dictionary = {
+	"p1_left": "P1 Left",
+	"p1_right": "P1 Right",
+	#"p1_up": "P1 Up",
+	"p1_jump": "P1 Jump",
+	"p1_down": "P1 Down",
+	"p1_interact": "P1 Interact",
+	"p1_cancel": "P1 Cancel",
+	
+	"p2_left": "P2 Left",
+	"p2_right": "P2 Right",
+	#"p2_up": "P2 Up",
+	"p2_jump": "P2 Jump",
+	
+	"p2_down": "P2 Down",
+	"p2_interact": "P2 Interact",
+	"p2_cancel": "P2 Cancel"
+}
 
 func _ready() -> void:
 	load_settings()
@@ -25,6 +43,11 @@ func load_settings() -> void:
 		music_volume = config.get_value("audio", "music_volume", 1.0)
 		sfx_volume = config.get_value("audio", "sfx_volume", 1.0)
 		
+		for action in keybind_actions:
+			var saved_event = config.get_value("controls", action, null)
+			if saved_event != null:
+				InputMap.action_erase_events(action) # Limpa a tecla padrão
+				InputMap.action_add_event(action, saved_event)
 	apply_video_settings(current_res_index, is_fullscreen)
 	apply_audio_settings() 
 
@@ -39,6 +62,10 @@ func save_settings() -> void:
 	config.set_value("audio", "music_volume", music_volume)
 	config.set_value("audio", "sfx_volume", sfx_volume)
 	
+	for action in keybind_actions:
+		var events = InputMap.action_get_events(action)
+		if events.size() > 0:
+			config.set_value("controls", action, events[0])
 	config.save(SETTINGS_FILE)
 
 func apply_video_settings(index: int, fullscreen: bool) -> void:

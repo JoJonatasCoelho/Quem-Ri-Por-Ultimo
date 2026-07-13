@@ -31,59 +31,68 @@ grow_vertical = 2
 [node name="Panel" type="Panel" parent="MarginContainer" unique_id=496928646]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel" unique_id=1309609496]
-layout_mode = 0
-offset_right = 640.0
-offset_bottom = 360.0
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Panel" unique_id=2013304668]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scroll_hint_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/ScrollContainer" unique_id=1309609496]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
 alignment = 1
 
-[node name="Volume" type="Label" parent="MarginContainer/Panel/VBoxContainer" unique_id=1987479311]
+[node name="Volume" type="Label" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer" unique_id=1987479311]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Volume"
 
-[node name="VolumeSlider" type="HSlider" parent="MarginContainer/Panel/VBoxContainer" unique_id=1158917102]
+[node name="VolumeSlider" type="HSlider" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer" unique_id=1158917102]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 max_value = 1.0
 step = 0.01
 
-[node name="MusicVolume" type="Label" parent="MarginContainer/Panel/VBoxContainer" unique_id=612186101]
+[node name="MusicVolume" type="Label" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer" unique_id=612186101]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Music volume"
 
-[node name="MusicSlider" type="HSlider" parent="MarginContainer/Panel/VBoxContainer" unique_id=466607781]
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer" unique_id=466607781]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 max_value = 1.0
 step = 0.01
 
-[node name="SfxVolume" type="Label" parent="MarginContainer/Panel/VBoxContainer" unique_id=1873792975]
+[node name="SfxVolume" type="Label" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer" unique_id=1873792975]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Music volume"
+text = "SFX volume"
 
-[node name="SfxSlider" type="HSlider" parent="MarginContainer/Panel/VBoxContainer" unique_id=1686729114]
+[node name="SfxSlider" type="HSlider" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer" unique_id=1686729114]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 max_value = 1.0
 step = 0.01
 
-[node name="Mute" type="CheckBox" parent="MarginContainer/Panel/VBoxContainer" unique_id=454621237]
+[node name="Mute" type="CheckBox" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer" unique_id=454621237]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "mute"
 
-[node name="Resolution" type="Label" parent="MarginContainer/Panel/VBoxContainer" unique_id=1668528182]
+[node name="Resolution" type="Label" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer" unique_id=1668528182]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Resolution"
 
-[node name="ResolutionOptionButton" type="OptionButton" parent="MarginContainer/Panel/VBoxContainer" unique_id=1333441505]
+[node name="ResolutionOptionButton" type="OptionButton" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer" unique_id=1333441505]
 layout_mode = 2
 size_flags_horizontal = 4
 item_count = 2
@@ -92,10 +101,15 @@ popup/item_0/id = 0
 popup/item_1/text = "1280x720"
 popup/item_1/id = 1
 
-[node name="Fullscreen" type="CheckBox" parent="MarginContainer/Panel/VBoxContainer" unique_id=1285468971]
+[node name="Fullscreen" type="CheckBox" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer" unique_id=1285468971]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Fullscreen"
+
+[node name="KeybindsLabel" type="Label" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer" unique_id=288125962]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Keybinds"
 
 [node name="TextureButton" type="TextureButton" parent="MarginContainer/Panel" unique_id=17300321]
 layout_mode = 1
@@ -109,10 +123,10 @@ texture_hover = ExtResource("3_sb302")
 texture_disabled = ExtResource("3_sb302")
 texture_focused = ExtResource("3_sb302")
 
-[connection signal="value_changed" from="MarginContainer/Panel/VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
-[connection signal="value_changed" from="MarginContainer/Panel/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="value_changed" from="MarginContainer/Panel/VBoxContainer/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
-[connection signal="toggled" from="MarginContainer/Panel/VBoxContainer/Mute" to="." method="_on_mute_toggled"]
-[connection signal="item_selected" from="MarginContainer/Panel/VBoxContainer/ResolutionOptionButton" to="." method="_on_resolution_option_button_item_selected"]
-[connection signal="toggled" from="MarginContainer/Panel/VBoxContainer/Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="value_changed" from="MarginContainer/Panel/ScrollContainer/VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Panel/ScrollContainer/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Panel/ScrollContainer/VBoxContainer/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="toggled" from="MarginContainer/Panel/ScrollContainer/VBoxContainer/Mute" to="." method="_on_mute_toggled"]
+[connection signal="item_selected" from="MarginContainer/Panel/ScrollContainer/VBoxContainer/ResolutionOptionButton" to="." method="_on_resolution_option_button_item_selected"]
+[connection signal="toggled" from="MarginContainer/Panel/ScrollContainer/VBoxContainer/Fullscreen" to="." method="_on_fullscreen_toggled"]
 [connection signal="pressed" from="MarginContainer/Panel/TextureButton" to="." method="_on_texture_button_pressed"]
