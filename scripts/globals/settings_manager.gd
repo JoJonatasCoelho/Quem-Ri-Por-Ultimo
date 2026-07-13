@@ -6,9 +6,9 @@ var current_res_index: int = 1
 var is_fullscreen: bool = false
 var is_muted: bool = false
 
-var master_volume: float = 1.0
-var music_volume: float = 1.0
-var sfx_volume: float = 1.0
+var master_volume: float = 0.5
+var music_volume: float = 0.5
+var sfx_volume: float = 0.5
 var keybind_actions: Dictionary = {
 	"p1_left": "P1 Left",
 	"p1_right": "P1 Right",

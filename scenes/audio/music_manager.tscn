@@ -5,6 +5,7 @@
 
 [node name="MusicManager" type="AudioStreamPlayer" unique_id=867738505]
 stream = ExtResource("1_lycc5")
+volume_db = -10.0
 autoplay = true
 bus = &"Music"
 script = ExtResource("2_lycc5")

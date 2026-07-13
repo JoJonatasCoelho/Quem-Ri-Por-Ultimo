@@ -39,5 +39,6 @@ func play_sound(sound_name: String) -> void:
 	player.stream = load(sfx_dictionary[sound_name])
 	player.bus = "Sfx"
 	add_child(player)
+	player.volume_db = -10
 	player.play()
 	player.finished.connect(player.queue_free)

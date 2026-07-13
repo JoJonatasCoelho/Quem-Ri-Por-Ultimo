@@ -46,6 +46,13 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 alignment = 1
 
+[node name="Label" type="Label" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer" unique_id=404771880]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0.56603885, 0.92072207, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Configuration"
+
 [node name="Volume" type="Label" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer" unique_id=1987479311]
 layout_mode = 2
 size_flags_horizontal = 4

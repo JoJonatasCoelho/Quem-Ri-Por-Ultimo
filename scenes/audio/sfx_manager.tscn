@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bjixgkqtai4ru"]
+[gd_scene format=3 uid="uid://ba6xxevpmpvt4"]
 
 [ext_resource type="Script" uid="uid://c3gekwsr3utbs" path="res://scripts/core/sfx_manager.gd" id="1_3ffui"]
 [ext_resource type="AudioStream" uid="uid://blx2mrt5jheqe" path="res://assets/audio/sfx/laughs/1.wav" id="2_nrtiv"]
@@ -17,6 +17,7 @@ script = ExtResource("1_3ffui")
 
 [node name="RandomLaughs" type="AudioStreamPlayer" parent="." unique_id=1303966127]
 stream = SubResource("AudioStreamRandomizer_kkyey")
+volume_db = -10.0
 max_polyphony = 2
 bus = &"Sfx"
 
