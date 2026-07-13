@@ -58,7 +58,9 @@ func handle_contact(collider: Node2D):
 	if collider == shooter:
 		return
 	if collider.is_in_group("players"):
-		GlobalSignals.hit_adversary.emit(collider as PlayerController, laugh_value)
+		var player: PlayerController = collider as PlayerController
+		player.handle_hit_by_a_projectile()
+		GlobalSignals.hit_adversary.emit(player, laugh_value)
 	if collider.is_in_group("boundaries"):
 		GlobalSignals.missed_adversary.emit(shooter as PlayerController, laugh_value)
 	prepare_to_free()

@@ -91,21 +91,21 @@ var state_rules: Dictionary = {
 		"can_jump": false,
 		"can_use_item": false,
 		"can_be_pushed": true,
-		"animation": "disgrace"
+		"animation": "crying"
 	},
 	"knockback": {
 		"can_move": false, 
 		"can_jump": false,
 		"can_use_item": false,
 		"can_be_pushed": false, 
-		"animation": "hurt"
+		"animation": "crying"
 	},
 	"using_disgrace": {
 		"can_move": false, 
 		"can_jump": false,
 		"can_use_item": false,
 		"can_be_pushed": true,
-		"animation": "disgrace"
+		"animation": "crying"
 	},
 	"game_over": {
 		"can_move": false, 
@@ -252,6 +252,16 @@ func handle_input() -> void:
 func handle_disgrace_animation() -> void:
 	var animation_name: String = equiped_disgrace.animation_name
 	print("nome da animação: ", animation_name)
+	if DISGRACE_ANIMATION.sprite_frames.has_animation(animation_name):
+		change_state("using_disgrace")
+		velocity.x = 0
+		DISGRACE_ANIMATION.play(animation_name, 1.5)
+		await DISGRACE_ANIMATION.animation_finished
+		if current_state != "game_over":
+			change_state("normal")
+
+func handle_hit_by_a_projectile() -> void:
+	var animation_name: String = state_rules["knockback"]["animation"]
 	if DISGRACE_ANIMATION.sprite_frames.has_animation(animation_name):
 		change_state("using_disgrace")
 		velocity.x = 0
