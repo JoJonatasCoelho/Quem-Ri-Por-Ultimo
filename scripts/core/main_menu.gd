@@ -25,3 +25,19 @@ func _on_configuration_pressed() -> void:
 
 func _on_sair_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_back_button_pressed() -> void:
+	$ButtonsPanel.visible = true
+	$GameTitle.visible = true
+	$Softworks.visible = true
+	$TutorialButton.visible = true
+	$TutorialPanel.visible = false
+
+
+func _on_tutorial_button_pressed() -> void:
+	$ButtonsPanel.visible = false
+	$GameTitle.visible = false
+	$Softworks.visible = false
+	$TutorialButton.visible = false
+	$TutorialPanel.visible = true

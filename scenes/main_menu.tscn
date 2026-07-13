@@ -12,6 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://buke2mqn1aygu" path="res://assets/placeholders/config_selected.png" id="9_rcqid"]
 [ext_resource type="Texture2D" uid="uid://bjorgykckgkc5" path="res://assets/placeholders/exit_selected.png" id="11_1ajci"]
 [ext_resource type="Texture2D" uid="uid://bfiyhr1jhg77k" path="res://assets/animations/GameTitle.png" id="12_flqon"]
+[ext_resource type="Texture2D" uid="uid://dc7wrxypp1acd" path="res://assets/placeholders/softworks.png" id="13_rcqid"]
+[ext_resource type="Texture2D" uid="uid://dior2vvgn1l5y" path="res://assets/placeholders/tutorial.png" id="14_1ajci"]
+[ext_resource type="Texture2D" uid="uid://bk71lfwwkphbr" path="res://assets/placeholders/arrow.png" id="15_5pajh"]
+[ext_resource type="Texture2D" uid="uid://c6ylj7tq3wvda" path="res://assets/placeholders/arrow_selected.png" id="16_j7ex8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rcqid"]
 atlas = ExtResource("12_flqon")
@@ -112,6 +116,44 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_1ajci"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(589, 319)]
+}
+
+[sub_resource type="Animation" id="Animation_7b55j"]
+resource_name = "default"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2.0333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(589, 319), Vector2(589, 312), Vector2(589, 319)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5pajh"]
+_data = {
+&"RESET": SubResource("Animation_1ajci"),
+&"default": SubResource("Animation_7b55j")
+}
+
 [node name="Menu" type="Control" unique_id=1849886522]
 layout_mode = 3
 anchors_preset = 15
@@ -179,7 +221,62 @@ sprite_frames = SubResource("SpriteFrames_6snss")
 autoplay = "default"
 frame_progress = 0.85706955
 
+[node name="Softworks" type="Sprite2D" parent="." unique_id=734272926]
+position = Vector2(589, 319)
+texture = ExtResource("13_rcqid")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Softworks" unique_id=498857859]
+libraries/ = SubResource("AnimationLibrary_5pajh")
+autoplay = &"default"
+
+[node name="TutorialButton" type="Button" parent="." unique_id=608801888]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -15.0
+offset_right = -11.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Tutorial"
+
+[node name="TutorialPanel" type="Panel" parent="." unique_id=255128207]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BackButton" type="TextureButton" parent="TutorialPanel" unique_id=375897600]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 16.0
+offset_right = 61.0
+offset_bottom = 48.0
+texture_normal = ExtResource("15_5pajh")
+texture_pressed = ExtResource("16_j7ex8")
+texture_hover = ExtResource("15_5pajh")
+
+[node name="Tutorial" type="TextureRect" parent="TutorialPanel" unique_id=1428332452]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("14_1ajci")
+
 [connection signal="pressed" from="ButtonsPanel/MenuButtons/Play" to="." method="_on_multiplayer_pressed"]
 [connection signal="pressed" from="ButtonsPanel/MenuButtons/Configuration" to="." method="_on_configuration_pressed"]
 [connection signal="pressed" from="ButtonsPanel/MenuButtons/Credits" to="." method="_on_singleplayer_pressed"]
 [connection signal="pressed" from="ButtonsPanel/MenuButtons/Sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="TutorialPanel/BackButton" to="." method="_on_back_button_pressed"]
