@@ -14,7 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://bfiyhr1jhg77k" path="res://assets/animations/GameTitle.png" id="12_flqon"]
 [ext_resource type="Texture2D" uid="uid://dc7wrxypp1acd" path="res://assets/placeholders/softworks.png" id="13_rcqid"]
 [ext_resource type="Texture2D" uid="uid://dior2vvgn1l5y" path="res://assets/placeholders/tutorial.png" id="14_1ajci"]
+[ext_resource type="Texture2D" uid="uid://ct2tulhk4j0fu" path="res://assets/placeholders/how_to_play.png" id="14_a8gd2"]
 [ext_resource type="Texture2D" uid="uid://bk71lfwwkphbr" path="res://assets/placeholders/arrow.png" id="15_5pajh"]
+[ext_resource type="Texture2D" uid="uid://w8jsvf8ulnva" path="res://assets/placeholders/how_to_play_selected.png" id="15_hstxw"]
 [ext_resource type="Texture2D" uid="uid://c6ylj7tq3wvda" path="res://assets/placeholders/arrow_selected.png" id="16_j7ex8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rcqid"]
@@ -229,20 +231,19 @@ texture = ExtResource("13_rcqid")
 libraries/ = SubResource("AnimationLibrary_5pajh")
 autoplay = &"default"
 
-[node name="TutorialButton" type="Button" parent="." unique_id=608801888]
+[node name="TutorialButton" type="TextureButton" parent="." unique_id=2130747219]
 layout_mode = 1
-anchors_preset = 6
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -15.0
-offset_right = -11.0
-offset_bottom = 16.0
+offset_left = -180.0
+offset_top = 58.0
+offset_right = -1.0
+offset_bottom = 101.0
 grow_horizontal = 0
-grow_vertical = 2
-text = "Tutorial"
+texture_normal = ExtResource("14_a8gd2")
+texture_pressed = ExtResource("15_hstxw")
+texture_hover = ExtResource("15_hstxw")
 
 [node name="TutorialPanel" type="Panel" parent="." unique_id=255128207]
 visible = false
@@ -276,7 +277,7 @@ texture = ExtResource("14_1ajci")
 
 [connection signal="pressed" from="ButtonsPanel/MenuButtons/Play" to="." method="_on_multiplayer_pressed"]
 [connection signal="pressed" from="ButtonsPanel/MenuButtons/Configuration" to="." method="_on_configuration_pressed"]
-[connection signal="pressed" from="ButtonsPanel/MenuButtons/Credits" to="." method="_on_singleplayer_pressed"]
+[connection signal="pressed" from="ButtonsPanel/MenuButtons/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="ButtonsPanel/MenuButtons/Sair" to="." method="_on_sair_pressed"]
 [connection signal="pressed" from="TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="TutorialPanel/BackButton" to="." method="_on_back_button_pressed"]

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://c3q2ymgggmm5s"]
+
+[ext_resource type="Script" uid="uid://uy7eii2oyiir" path="res://scripts/core/credits.gd" id="1_8gwij"]
+[ext_resource type="Texture2D" uid="uid://igrwyk4fn0cx" path="res://assets/placeholders/credits_img.png" id="2_8gwij"]
+[ext_resource type="Texture2D" uid="uid://bk71lfwwkphbr" path="res://assets/placeholders/arrow.png" id="3_mah5v"]
+[ext_resource type="Texture2D" uid="uid://c6ylj7tq3wvda" path="res://assets/placeholders/arrow_selected.png" id="4_kyhnv"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2fbfq"]
+load_path = "res://.godot/imported/menu.png-7e2116ed3739ffc88fd4c12856a56d36.ctex"
+
+[node name="Credits" type="Control" unique_id=1108347550]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8gwij")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1502713428]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = SubResource("CompressedTexture2D_2fbfq")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1447194540]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8gwij")
+
+[node name="BackButton" type="TextureButton" parent="." unique_id=487162312]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 16.0
+offset_right = 61.0
+offset_bottom = 48.0
+texture_normal = ExtResource("3_mah5v")
+texture_pressed = ExtResource("4_kyhnv")
+texture_hover = ExtResource("3_mah5v")
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
