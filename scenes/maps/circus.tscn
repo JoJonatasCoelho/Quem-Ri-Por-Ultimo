@@ -7,9 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://edsy444m7rf4" path="res://scenes/player.tscn" id="4_3xumh"]
 [ext_resource type="Texture2D" uid="uid://dmmv7wsnkhlpp" path="res://assets/placeholders/player2_name.png" id="4_ec7s4"]
 [ext_resource type="PackedScene" uid="uid://cwbxfq68r4idl" path="res://scenes/gui/battle_ui.tscn" id="4_mvpml"]
+[ext_resource type="PackedScene" uid="uid://dhf1r8314i177" path="res://scenes/disgraces/tv.tscn" id="7_4txs0"]
 [ext_resource type="Texture2D" uid="uid://ckt3mo0dqexr0" path="res://assets/placeholders/circus_ring.png" id="7_33em3"]
+[ext_resource type="PackedScene" uid="uid://beqbyatrhqjeo" path="res://scenes/disgraces/gun.tscn" id="8_3boc2"]
 [ext_resource type="Texture2D" uid="uid://b3dcp4vc3gm78" path="res://assets/placeholders/player1_name.png" id="8_76i8t"]
 [ext_resource type="Texture2D" uid="uid://dsgcj6p22cap7" path="res://assets/placeholders/wins.png" id="9_ahyvy"]
+[ext_resource type="PackedScene" uid="uid://c0f2h8pp0dkv2" path="res://scenes/disgraces/toaster.tscn" id="9_ktrvh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kkyey"]
 
@@ -73,6 +76,7 @@ position = Vector2(586, 263)
 map_spawnpoints = [NodePath("../DisgracesSpawnPoints/Spawn1"), NodePath("../DisgracesSpawnPoints/Spawn2"), NodePath("../DisgracesSpawnPoints/Spawn3"), NodePath("../DisgracesSpawnPoints/Spawn4"), NodePath("../DisgracesSpawnPoints/Spawn5")]
 max_disgraces = 5
 disgrace_respawn_cooldown = 5.0
+disgraces = Array[PackedScene]([ExtResource("7_4txs0"), ExtResource("8_3boc2"), ExtResource("9_ktrvh")])
 
 [node name="DisgracesSpawnPoints" type="Node2D" parent="." unique_id=168093940]
 

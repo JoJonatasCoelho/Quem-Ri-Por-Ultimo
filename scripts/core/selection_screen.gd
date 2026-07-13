@@ -108,8 +108,10 @@ func _process(_delta: float) -> void:
 
 func update_p1_cursor():
 	if Input.is_action_just_pressed("p1_right"):
+		SfxManager.play_sound("change_skin")
 		p1_cursor_idx = (p1_cursor_idx + 1) % characters_grid.columns
 	if Input.is_action_just_pressed("p1_left"):
+		SfxManager.play_sound("change_skin")
 		p1_cursor_idx = (p1_cursor_idx - 1 + characters_grid.columns) % characters_grid.columns
 		
 	var character: TextureRect = characters[p1_cursor_idx]
@@ -134,8 +136,10 @@ func update_p1_cursor():
 	
 func update_p2_cursor():
 	if Input.is_action_just_pressed("p2_right"):
+		SfxManager.play_sound("change_skin")
 		p2_cursor_idx = (p2_cursor_idx + 1) % characters_grid.columns
 	if Input.is_action_just_pressed("p2_left"):
+		SfxManager.play_sound("change_skin")
 		p2_cursor_idx = (p2_cursor_idx - 1 + characters_grid.columns) % characters_grid.columns
 		
 	var character: TextureRect = characters[p2_cursor_idx]
